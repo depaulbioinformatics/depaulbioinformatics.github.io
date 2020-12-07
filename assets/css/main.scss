@@ -28,8 +28,8 @@
 /* The overlay effect - lays on top of the container and over the image */
 .appear-label {
   position: relative;
-  bottom: 10px;
-  left: 15px;
+  bottom: 25px;
+  left: 3px;
   background: rgb(0, 0, 0);
   background: rgba(0, 0, 0, 0.5); /* Black see-through */
   color: #f1f1f1;
@@ -56,6 +56,7 @@
 .squ-block {
 	display: inline-block;
 	position: relative;
+	bottom: 10px;
 	cursor: pointer;
 	padding: 5px;
 	text-align: center;
