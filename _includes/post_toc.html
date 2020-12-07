@@ -13,7 +13,6 @@
 	    <p><em>{{page.beforetoc}}</em></p>
 	{% endif %}
 
-
 	<div class="row text-center justify-content-center toc-background">
 		<!-- Create Table of Contents (toc) -->
 
@@ -74,31 +73,55 @@
 		
 		{% endfor %}
 	</div>
+
+
+
+<!-- 
+NOTE:: site.all_section order dependency => href links to page sections
+
+"Projects", "Publications", "Software", "Teams", "Members", "Fundings", "Opportunities"
+
+
+NOTE:: Limited to 6 headers per post...
+
+TODO:: if appear-label is off center... ==> try "justify-content-end" on the *row/col div*
+-->
+
+
+
 	<!-- bottom row of table of contents ==> includes icons for non-section & section'd headers -->
 	<div class="row text-center justify-content-center">
+
+		{% assign max_count=6 %}<!-- Determined by "#header-item" grid size: ''class="col-2... '' ==> 6 max -->
+		{% assign count=0 %}
 
 		{% for ts in layout.headers %}
 			{% case ts %}
 
 				{% when site.all_headers[0] %}
 					<!-- Modes: Ongoing, Complete, Halted? -->
-					{% if page.start_date %}
+					{% if page.start_date and count<max_count %}
+
+					    {% assign count = count | plus: 1 %}
 				        <div id="header-item" class="col-2 mt-1 mb-1">
 				        	<div class="hover-item squ-block">
 	        		            <div class="b-text">{{page.start_date | date: "%-d" }}</div>
 	        		            <div class="s-text">{{page.start_date | date: "%B %Y" }}</div>
 	        		        </div>
-	            			<div class="row h-10">
+	            			<div class="row appear-label-row h-10">
 		            			<div class="col">
 		            				<div class="appear-label text-capitalize">{{ ts }}</div>
 		            			</div>
 		            		</div>
 						</div>
+
 					{% endif %}
 
 				{% when site.all_headers[1] %}
 					<!-- Modes: Ongoing, Complete, Halted? -->
-					{% if page.end_date %}
+					{% if page.end_date and count<max_count %}
+
+						{% assign count = count | plus: 1 %}
 				        <div id="header-item" class="col-2 mt-1 mb-1">
 				        	<div class="hover-item squ-block">
 	        		            <div class="b-text">{{page.end_date | date: "%-d" }}</div>
@@ -110,11 +133,14 @@
 		            			</div>
 		            		</div>
 						</div>
+
 					{% endif %}
 
 				{% when site.all_headers[2] %}
 					<!-- Modes: Ongoing, Complete, Halted? -->
-					{% if page.status %}
+					{% if page.status and count<max_count %}
+
+						{% assign count = count | plus: 1 %}
 				        <div id="header-item" class="col-2 mt-1 mb-1">
 				        	<div class="hover-item squ-block">
 	        		            <a href="#{{ ts | replace: " ","-" }}">
@@ -129,11 +155,13 @@
 		            			</div>
 		            		</div>
 						</div>
+
 					{% endif %}
 
 				{% when site.all_headers[3] %}
 					<!-- Modes: Ongoing, Complete, Halted? -->
-					{% if page.keywords %}
+					{% if page.keywords and count<max_count %}
+						{% assign count = count | plus: 1 %}
 				        <div id="header-item" class="col-2 mt-1 mb-1">
 				        	<div class="hover-item squ-block">
 	        		            <a href="#{{ ts | replace: " ","-" }}">
@@ -147,12 +175,15 @@
 		            			</div>
 		            		</div>
 						</div>
+
 					{% endif %}
 
 
 				{% when site.all_headers[4] %}
 					{% if unique_teams %}
-						{% if unique_teams.size > 0 %}
+						{% if unique_teams.size > 0 and count<max_count %}
+
+							{% assign count = count | plus: 1 %}
 							<div id="header-item" class="col-2 mt-1 mb-1">
 					        	<div class="hover-item squ-block">
 		        		            <a href="#{{ site.all_sections[3] | replace: " ","-" }}">
@@ -166,12 +197,15 @@
 			            			</div>
 			            		</div>
 							</div>
+
 						{% endif %}		
 					{% endif %}
 
 				{% when site.all_headers[5] %}
 					{% if include.members %}
-						{% if include.members.size > 0 %}
+						{% if include.members.size > 0 and count<max_count %}
+
+							{% assign count = count | plus: 1 %}
 							<div id="header-item" class="col-2 mt-1 mb-1">
 					        	<div class="hover-item squ-block">
 		        		            <a href="#{{ site.all_sections[4] | replace: " ","-" }}">
@@ -185,30 +219,37 @@
 			            			</div>
 			            		</div>
 							</div>
+
 						{% endif %}		
 					{% endif %}
 
 				{% when site.all_headers[6] %}
 					{% if include.projects %}
-						{% if include.projects.size > 0 %}
-				        	<div class="hover-item squ-block">
-	        		            <a href="#{{ site.all_sections[0] | replace: " ","-" }}">
-		                			<i class="icon-block fa fa-user-friends fa-2x"></i>
-		            			</a>
-		            		<div class="s-text">{{page.projects.size}} {{ts}}{%if include.projects.size>1%}s{% endif %}</div>
-	            			</div>
-	            			<div class="row h-10">
-		            			<div class="col">
-		            				<div class="appear-label text-capitalize">{{ ts }}{%if include.projects.size>1%}s{% endif %}</div>
+						{% if include.projects.size > 0 and count<max_count %}
+
+							{% assign count = count | plus: 1 %}
+							<div id="header-item" class="col-2 mt-1 mb-1">
+					        	<div class="hover-item squ-block">
+		        		            <a href="#{{ site.all_sections[0] | replace: " ","-" }}">
+			                			<i class="icon-block fa fa-user-friends fa-2x"></i>
+			            			</a>
+			            		<div class="s-text">{{include.projects.size}} {{ts}}{%if include.projects.size>1%}s{% endif %}</div>
 		            			</div>
-		            		</div>
-						</div>
+		            			<div class="row h-10">
+			            			<div class="col">
+			            				<div class="appear-label text-capitalize">{{ ts }}{%if include.projects.size>1%}s{% endif %}</div>
+			            			</div>
+			            		</div>
+							</div>
+
 						{% endif %}		
 					{% endif %}
 
 				{% when site.all_headers[7] %}
 					{% if softs %}
-						{% if softs.size > 0 %}
+						{% if softs.size > 0 and count<max_count %}
+
+							{% assign count = count | plus: 1 %}
 							<div id="header-item" class="col-2 mt-1 mb-1">
 					        	<div class="hover-item squ-block">
 		        		            <a href="#{{ site.all_sections[2] | replace: " ","-" }}">
@@ -222,20 +263,17 @@
 			            			</div>
 			            		</div>
 							</div>
+
 						{% endif %}		
 					{% endif %}
 
 				{% when site.all_headers[8] %}
 					{% if pubs %}
-						{% if pubs.size > 0 %}
+						{% if pubs.size > 0 and count<max_count %}
+
+							{% assign count = count | plus: 1 %}
 							<div id="header-item" class="col-2 mt-1 mb-1">
 					        	<div class="hover-item squ-block">
-					        		<!-- 
-					        			NOTE:: site.all_section order dependency
-
-"Projects", "Publications", "Software", "Teams", "Members", "Fundings", "Opportunities"
-					        			
-					        			 -->
 		        		            <a href="#{{ site.all_sections[1] | replace: " ","-" }}"> 
 			                			<i class="icon-block fas fa-book fa-2x"></i>
 			            			</a>
@@ -247,6 +285,7 @@
 			            			</div>
 			            		</div>
 							</div>
+
 						{% endif %}		
 					{% endif %}
 
