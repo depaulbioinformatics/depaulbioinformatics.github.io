@@ -36,7 +36,7 @@ collections:
 all_sections: ["Projects", "Publications", "Software", "Teams", "Members", "Fundings", "Opportunities"]
 all_headers: ["Starting Date", "Ending Date", "Status", "Keyword", "Team", "Member", "Project", "Software", "Publication"]
 
-member_types: ["Faculty", "Postdoctoral Researchers", "PhD Researchers", "Master's Students", "Undergraduate Students", "External Collaborators", "Alumni"]
+member_types: ["Faculty", "Postdoctoral Researcher", "PhD Researcher", "Master's Student", "Undergraduate Student", "External Collaborator", "Alumnus"]
 
 # Defaults
 defaults:

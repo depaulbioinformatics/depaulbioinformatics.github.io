@@ -51,22 +51,22 @@ toc: true
 {% endif %}
 
 {% if postdocs.size > 0 %}
-	{% assign t=site.member_types[1] %}
+	{% capture t %}{{site.member_types[1]}}s{% endcapture %}
 	{% include collection_include.html collection=postdocs title=t %}
 {% endif %}
 
 {% if phds.size > 0 %}
-	{% assign t=site.member_types[2] %}
+	{% capture t %}{{site.member_types[2]}}s{% endcapture %}
 	{% include collection_include.html collection=phds title=t %}
 {% endif %}
 
 {% if masters.size > 0 %}
-	{% assign t=site.member_types[3] %}
+	{% capture t %}{{site.member_types[3]}}s{% endcapture %}
 	{% include collection_include.html collection=masters title=t %}
 {% endif %}
 
 {% if students.size > 0 %}
-	{% assign t=site.member_types[4] %}
+	{% capture t %}{{site.member_types[4]}}s{% endcapture %}
 	{% include collection_include.html collection=students title=t %}
 {% endif %}
 
@@ -76,7 +76,7 @@ toc: true
 {% endif %}
 
 {% if alumni.size > 0 %}
-	{% assign t=site.member_types[6] %}
+	{% capture t %}Alumni{% endcapture %}
 	{% include collection_include.html collection=alumni title=t %}
 {% endif %}
 

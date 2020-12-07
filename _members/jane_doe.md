@@ -2,7 +2,7 @@
 title: Jane Doe
 layout: member
 
-type_group: "External Collaborators"
+type_group: "External Collaborator"
 
 keywords: ["genetics", "cake"]
 

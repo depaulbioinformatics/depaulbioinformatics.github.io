@@ -12,6 +12,7 @@
 	{% if page.beforetoc %}
 	    <p><em>{{page.beforetoc}}</em></p>
 	{% endif %}
+<div class="sticky-top">
 
 	<div class="row text-center justify-content-center toc-background">
 		<!-- Create Table of Contents (toc) -->
@@ -75,7 +76,7 @@
 	</div>
 
 
-
+</div>
 <!-- 
 NOTE:: site.all_section order dependency => href links to page sections
 
@@ -90,7 +91,7 @@ TODO:: if appear-label is off center... ==> try "justify-content-end" on the *ro
 
 
 	<!-- bottom row of table of contents ==> includes icons for non-section & section'd headers -->
-	<div class="row text-center justify-content-center">
+	<div class="row hidden-md-down text-center justify-content-center">
 
 		{% assign max_count=6 %}<!-- Determined by "#header-item" grid size: ''class="col-2... '' ==> 6 max -->
 		{% assign count=0 %}

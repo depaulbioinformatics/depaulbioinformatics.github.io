@@ -1,7 +1,7 @@
 ---
 title: DeAngelo Wilson
 
-type_group: "Master's Students"
+type_group: "Master's Student"
 
 # key words MUST all be lowercase (or allows duplicates)
 keywords: ["pie", "Computer Science", "Phylogenetics", "Computational Phylogenetics"]
