@@ -22,9 +22,9 @@
                         <div class="card-body">
                             <h2 class="card-title">
                                 <a class="text-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-                                {% if post.rating %}
+                                {% if post.opportunities %}
                                 <div class="mb-2 mt-2 font-weight-normal">
-                                {% include star_rating_postbox.html %}
+                                {% include opportunities_include.html %}
                                 </div>
                                 {% endif %}
                             </h2>
