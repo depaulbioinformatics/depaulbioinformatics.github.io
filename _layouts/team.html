@@ -1,7 +1,7 @@
 ---
 layout: post
 group: team
-sections: ["Members", "Projects", "Opportunities"]
+sections: ["About", "Members", "Projects", "Opportunities", "Media"]
 headers: ["Keyword", "Member", "Project"]
 ---
 
@@ -26,20 +26,20 @@ headers: ["Keyword", "Member", "Project"]
 
 <!-- Create Table of Contents (toc) -->
 {% include post_toc.html members=unique_members projects=projs %}
-<div class="section-title col-md-12 mt-4">
-<h2>About</h2>
+<div id="{{layout.sections[0] | replace: " ","-"}}" class="section-title col-md-12 mt-4">
+<h2>{{layout.sections[0]}}</h2>
 </div>
 {{content}}
 
 
 <!--   TEAM PAGE Layout -- OUTPUT HERE     -->
-{% assign s=layout.sections[0] %}
+{% assign s=layout.sections[1] %}
 <!-- List members -->
 ​{% include SectionIncludes/members_include.html members_array=unique_members section=s %}
 
-​{% assign s=layout.sections[1] %}
+​{% assign s=layout.sections[2] %}
 <!-- List projects --- and description + linkage -->
 {% include SectionIncludes/projects_include.html projects_array=projs section=s %}
 
-{% assign s=layout.sections[2] %}
+{% assign s=layout.sections[3] %}
 {% include SectionIncludes/jobs_include.html section=s type=layout.group %}

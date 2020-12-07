@@ -2,6 +2,7 @@
 layout: project
 
 title: "Collaborative Research: ABI Innovation: Biofilm Resource and Information Database (BRaID): A Tool to Fuse Diverse Biofilm Data Types."
+# description: "this is description"
 
 # Enables the "author box" --> used for PI of project
 author: "Thiru Ramaraj"

@@ -1,7 +1,7 @@
 ---
 layout: post
 group: project
-sections: ["Fundings", "Opportunities", "Members", "Publications", "Software"]
+sections: ["About", "Fundings", "Members", "Publications", "Software", "Opportunities", "Media"]
 headers: ["Starting Date", "Ending Date", "Status", "Keyword", "Member", "Software", "Publication"]
 
 #Status types for 'page.status' variable
@@ -19,8 +19,8 @@ Creates the 'pubs' and 'softs' array (if any publications/softwares)
 
 <!-- Create Table of Contents (toc) -->
 {% include post_toc.html members=page.people %}
-<div class="section-title col-md-12 mt-4">
-<h2>About</h2>
+<div id="{{layout.sections[0] | replace: " ","-"}}" class="section-title col-md-12 mt-4">
+<h2>{{layout.sections[0]}}</h2>
 </div>
 
 {{content}}
@@ -28,11 +28,9 @@ Creates the 'pubs' and 'softs' array (if any publications/softwares)
 <!--
 Sections -- extra (funding + status) + collection includes 
 -->
-{% assign s=layout.sections[0] %}
+{% assign s=layout.sections[1] %}
 {% include SectionIncludes/funding_include.html section=s  %}
 
-{% assign s=layout.sections[1] %}
-{% include SectionIncludes/jobs_include.html section=s type=layout.group %}
 
 {% assign s=layout.sections[2] %}
 {% include SectionIncludes/members_include.html members_array=page.people section=s %}
@@ -43,3 +41,6 @@ Sections -- extra (funding + status) + collection includes
 <!-- List publications and softwares-->
 {% assign s=layout.sections[4] %}
 {% include SectionIncludes/software_include.html software=softs section=s %}
+
+{% assign s=layout.sections[5] %}
+{% include SectionIncludes/jobs_include.html section=s type=layout.group %}

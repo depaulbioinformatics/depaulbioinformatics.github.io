@@ -13,7 +13,13 @@ post_class: post-template
         <div class="col-md-2 pl-0">
             {% include external_links.html %}
         </div>
+<!--
+NOTE:: Could add back to top button to all posts...
 
+        <div class="col-md-2 pr-0 rs">
+            {% include top_link.html %}
+        </div>
+-->
         <!-- Post -->
         {% assign author_post = site.members | where: "author", page.author | first %}
 
@@ -53,17 +59,17 @@ post_class: post-template
 
             <!-- Post Featured Image -->
             {% if page.image %}
-            {% if site.lazyimages == "enabled" %}
 
                 {% assign image=page.image %}
-
                 <!-- determine which pic to use as post picture-->
                 {% if page.featured_image %}{% assign image=page.featured_image %}{% endif %}
-
-                <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">
+                
+                {% if site.lazyimages == "enabled" %}
+                    <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">
+                
                 {% else %}
-                <img class="featured-image img-fluid" src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">
-            {% endif %}
+                    <img class="featured-image img-fluid" src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">
+                {% endif %}
 
             {% endif %}
             <!-- End Featured Image -->

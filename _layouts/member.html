@@ -1,7 +1,7 @@
 ---
 layout: post
 group: member # relied in in post.html... (author<==> PI)
-sections: ["Projects", "Publications", "Software", "Teams"]
+sections: ["About", "Projects", "Publications", "Software", "Teams", "Media"]
 headers: ["Keyword", "Team", "Project", "Software", "Publication"]
 ---
 
@@ -40,8 +40,8 @@ Creates the 'pubs' and 'softs' array (if any publications/softwares)
 
 <!-- Create Table of Contents (toc) -->
 {% include post_toc.html projects=projs %}
-<div class="section-title col-md-12 mt-4">
-<h2>About</h2>
+<div id="{{layout.sections[0] | replace: " ","-"}}" class="section-title col-md-12 mt-4">
+<h2>{{layout.sections[0]}}</h2>
 </div>
 
 {{ content }}
@@ -53,16 +53,16 @@ NOTE:: very UGLY ==> could create dictionary of 'sections':
 -->
 
 ​<!-- List projects --- and description + linkage -->
-{% assign s=layout.sections[0] %}
+{% assign s=layout.sections[1] %}
 {% include SectionIncludes/projects_include.html projects_array=projs section=s %}
 <!-- List publications and softwares-->
-{% assign s=layout.sections[1] %}
+{% assign s=layout.sections[2] %}
 {% include SectionIncludes/publications_include.html publications=pubs section=s %}
 <!-- List publications and softwares-->
-{% assign s=layout.sections[2] %}
+{% assign s=layout.sections[3] %}
 {% include SectionIncludes/software_include.html software=softs section=s %}
 <!-- List teams --- and description + linkage -->
-{% assign s=layout.sections[3] %}
+{% assign s=layout.sections[4] %}
 {% include SectionIncludes/teams_include.html teams_array=unique_teams section=s %}
 
 
