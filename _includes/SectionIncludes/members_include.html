@@ -20,7 +20,7 @@ required input:
 	<h2 id="{{include.section | replace: " ","-"}}"><span class="text-capitalize">{{include.section}}</span></h2>
 	</div>
 
-	<ul>
+	<div class="row listrecent">
 	   {% for member in include.members_array %}
 
 	   		<!-- SLOW + UGLY -- Get-the-job-done way O(N * M) [N = total_member_posts, M = total_members_to_display -> sizeof(members_array)] 
@@ -29,9 +29,28 @@ required input:
 			{% assign member_post = site.members | where: "title", member | first %}
 
 			<!--Formatting-->
+
+
+                <div class="col-xs-12 col-md-5 col-lg-4 h-75 text-center mb-4 mb-md-0">
+                    {% if member_post.avatar %}
+                    <img class="member-thumb" src="{{site.baseurl}}/{{ member_post.avatar }}" alt="{{ member_post.name }}">
+                    {% else %}
+                    <img class="member-thumb" src="https://www.gravatar.com/avatar/{{ member_post.gravatar }}?s=250&d=mm&r=x" alt="{{ member_post.name }}">
+                    {% endif %}
+                    <br>
+
+                    <a class="link-dark" href="{{site.baseurl}}{{ member_post.url }}">{{ member_post.title }}</a>
+                    <!--<a target="_blank" href="{{ author_post.twitter }}" class="btn follow">Follow</a>-->
+                    <br>
+                    <span class="author-description">{{ member_post.type_group }}</span>
+                </div>
+
+
+
+<!--
 	      	<li><a href="{{ member_post.url }}">{{ member_post.title }}</a></li>
-	   
+-->   
 	   {% endfor %}
-	</ul>
+	</div>
 
 {% endif %}

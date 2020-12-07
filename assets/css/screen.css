@@ -148,8 +148,8 @@ section.recent-posts {
     padding-left: 0;
 }
 
-.listfeaturedtag h2.card-title,
-.listrecent h2.card-title {
+.listfeaturedtag h4.card-title,
+.listrecent h4.card-title {
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.25;
@@ -189,6 +189,14 @@ section.recent-posts {
     height: 40px;
     margin-right: 13px;
     border-radius: 100%;
+}
+
+.member-thumb {
+    display: block;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    margin: auto;
 }
 
 .post-top-meta {

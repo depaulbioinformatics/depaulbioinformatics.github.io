@@ -7,8 +7,8 @@
 
 .toc-background {background-color: #DCDCDC;   border-radius: 15px;}
 
-#header-text{
-	font-size: 15px;
+#opportunities-text{
+	font-size: 18px;
 
 }
 
@@ -83,6 +83,23 @@
 
 
 
+.list-group-item-heading{
+  font-size: 20px;
+}
+
+
+
+.listrecent h4.card-title2 {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.author-description {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 0.95rem;
+}
 
 
 /* We need to add display:inline in order to align the '>>' of the 'read more' link */

@@ -2,7 +2,7 @@
 title: John Doe
 layout: member
 
-type_group: "Alumni"
+type_group: "Alumnus"
 
 author: "John Doe"
 name: John Doe

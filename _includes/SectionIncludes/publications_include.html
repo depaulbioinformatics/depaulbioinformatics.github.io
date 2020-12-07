@@ -20,15 +20,26 @@ INCLUDE PARAMETERS::
 <div class="section-title col-md-12 mt-4">
 <h2 id="{{include.section | replace: " ","-"}}"><span class="text-capitalize">{{include.section}}</span></h2>
 </div>
-	<ul>
-		{% for pub in include.publications %}
 
-		<!--Formatting-->
-		<li><a href="{{ pub.url }}">{{ pub.title }}</a></li>
+	<!--Formatting-->
+	<div class="row listrecent">
+
+		{% for post in include.publications %}
+			{% assign d=post.people | join: ", " %}
+			{% include sub-postbox.html description=d %}
+			
 
 		{% endfor %}
-	</ul>
+	</div>
 {% endif %}
 
 
 {% endif %}	
+<!--
+	<div class="list-group">
+		<a href="{{pub.url}}" class="list-group-item">
+			<h4 class="list-group-item-heading">{{pub.title}}</h4>
+			<p class="list-group-item-text">{{pub.people | join: ", "}}</p>
+		</a>
+	</div>
+-->

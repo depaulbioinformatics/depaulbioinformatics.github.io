@@ -2,7 +2,7 @@
 title: Lily Cornell
 layout: member
 
-type_group: "Undergraduate Students"
+type_group: "Undergraduate Student"
 
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
