@@ -5,8 +5,8 @@ author: "Thiru Ramaraj"
 
 type_group: "Faculty"
 
-name: Sal
-display_name: Sal
+name: Thiru
+display_name: Thiru
 gravatar: e56154546cf4be74e393c62d1ae9f9d4
 email: wowthemesnet@gmail.com
 web: https://www.wowthemes.net

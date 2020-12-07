@@ -28,15 +28,16 @@
 		<div class="section-title col-md-12 mt-4">
 			<h2 id="{{include.section | replace: " ","-"}}"><span class="text-capitalize">{{include.section}}</span></h2>
 		</div>
-		<ul>
-		   {% for job in group_jobs %}
+
+		<div class="row listrecent">
+		   {% for post in group_jobs %}
 
 				<!--Formatting-->
-		      	<li><a href="{{ job.url }}">{{ job.title }}</a></li>
+			{% include sub-postbox.html author_note="Contact:" %}
 		   
 		   {% endfor %}
-		</ul>
-
+		</div>
+	
 	{% else %}
 
 		{% if page.call_for_action %}

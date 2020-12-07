@@ -155,6 +155,12 @@ section.recent-posts {
     line-height: 1.25;
 }
 
+.listrecent h4.sub-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
 .listfeaturedtag h4.card-text,
 .listrecent h4.card-text {
     color: rgba(0, 0, 0, .44);
@@ -195,6 +201,14 @@ section.recent-posts {
     display: block;
     width: 90px;
     height: 90px;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.sub-post-thumb {
+    display: block;
+    width: 80px;
+    height: 80px;
     border-radius: 100%;
     margin: auto;
 }
@@ -403,6 +417,10 @@ blockquote {
 
 .sticky-top-offset {
     top: 100px;
+}
+
+.sticky-bottom-offset {
+    bottom: 100px;
 }
 
 @media (min-width:1024px) {

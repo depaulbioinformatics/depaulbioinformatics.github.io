@@ -16,8 +16,7 @@ required input:
 
 		{% for post in include.projects_array %}
 
-			{% assign d=post.people | join: ", " %}
-			{% include sub-postbox.html description=d %}
+			{% include sub-postbox.html author_note="PI" %}
 
 		{% endfor %}
 	</div>

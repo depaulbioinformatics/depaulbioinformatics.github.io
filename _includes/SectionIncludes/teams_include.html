@@ -19,16 +19,17 @@ required input:
 <div class="section-title col-md-12 mt-4">
 <h2 id="{{include.section | replace: " ","-"}}"><span class="text-capitalize">{{include.section}}</span></h2>
 </div>
-	<ul>
+	<div class="row listrecent">
 	   {% for team in include.teams_array %}
 
 	   		<!-- SLOW + UGLY -- Get-the-job-done way O(N * M) [N = total_member_posts, M = total_members_to_display -> sizeof(members_array)] -->
-			{% assign team_post = site.teams | where: "title", team | first %}
+			{% assign post = site.teams | where: "title", team | first %}
 
 			<!--Formatting-->
-	      	<li><a href="{{ team_post.url }}">{{ team_post.title }}</a></li>
-	   
+			{% include sub-postbox.html author_note="PI" %}
+
+	      
 	   {% endfor %}
-	</ul>
+	</div>
 
 {% endif %}

@@ -20,6 +20,11 @@
 		{% for ts in layout.sections %}
 			{% case ts %}
 				{% when site.all_sections[0] %}
+					<!-- NOTE:: COMPLETELY hard-coded => #top == Site title id + ALL posts have about section -->
+					<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
+
+
+				{% when site.all_sections[1] %}
 					{% if include.projects %}
 						{% if include.projects.size > 0 %}
 							<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
@@ -27,7 +32,7 @@
 					{% endif %}
 
 
-				{% when site.all_sections[1] %}
+				{% when site.all_sections[2] %}
 					{% if pubs %}
 						{% if pubs.size > 0 %}
 							<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
@@ -35,7 +40,7 @@
 					{% endif %}
 
 
-				{% when site.all_sections[2] %}
+				{% when site.all_sections[3] %}
 					{% if softs %}
 						{% if softs.size > 0 %}
 							<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
@@ -43,7 +48,7 @@
 					{% endif %}
 				
 
-				{% when site.all_sections[3] %}
+				{% when site.all_sections[4] %}
 					{% if unique_teams %}
 						{% if unique_teams.size > 0 %}
 							<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
@@ -51,19 +56,19 @@
 					{% endif %}
 					
 
-				{% when site.all_sections[4] %}
+				{% when site.all_sections[5] %}
 					{% if include.members %}
 						{% if include.members.size > 0 %}
 							<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
 						{% endif %}		
 					{% endif %}
 
-				{% when site.all_sections[5] %}
+				{% when site.all_sections[6] %}
 					{% if page.funding %}
 						<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
 					{% endif %}
 
-				{% when site.all_sections[6] %}
+				{% when site.all_sections[7] %}
 					{% if page.opportunities %}
 						<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
 					{% endif %}
@@ -78,7 +83,7 @@
 
 </div>
 <!-- 
-NOTE:: site.all_section order dependency => href links to page sections
+NOTE:: site.all_section order dependency => href links to page sections ************************************************************************
 
 "Projects", "Publications", "Software", "Teams", "Members", "Fundings", "Opportunities"
 
@@ -144,9 +149,9 @@ TODO:: if appear-label is off center... ==> try "justify-content-end" on the *ro
 						{% assign count = count | plus: 1 %}
 				        <div id="header-item" class="col-2 mt-1 mb-1">
 				        	<div class="hover-item squ-block">
-	        		            <a href="#{{ ts | replace: " ","-" }}">
+	        		            <span class="link-text-color">
 		                			<i class="icon-block fa fa-tachometer-alt fa-2x"></i>
-		            			</a>
+		            			</span>
 	        		            <div class="s-text">{{page.status}}</div>
 
 	            			</div>
@@ -159,8 +164,8 @@ TODO:: if appear-label is off center... ==> try "justify-content-end" on the *ro
 
 					{% endif %}
 
+{% comment %}<!-- TODO:: implement modal view to see keywords for this post... -->
 				{% when site.all_headers[3] %}
-					<!-- Modes: Ongoing, Complete, Halted? -->
 					{% if page.keywords and count<max_count %}
 						{% assign count = count | plus: 1 %}
 				        <div id="header-item" class="col-2 mt-1 mb-1">
@@ -179,6 +184,7 @@ TODO:: if appear-label is off center... ==> try "justify-content-end" on the *ro
 
 					{% endif %}
 
+{% endcomment %}
 
 				{% when site.all_headers[4] %}
 					{% if unique_teams %}
@@ -187,7 +193,7 @@ TODO:: if appear-label is off center... ==> try "justify-content-end" on the *ro
 							{% assign count = count | plus: 1 %}
 							<div id="header-item" class="col-2 mt-1 mb-1">
 					        	<div class="hover-item squ-block">
-		        		            <a href="#{{ site.all_sections[3] | replace: " ","-" }}">
+		        		            <a href="#{{ site.all_sections[4] | replace: " ","-" }}">
 			                			<i class="icon-block fas fa-people-carry fa-2x"></i>
 			            			</a>
 			            			<div class="s-text">{{unique_teams.size}} {{ts}}{%if unique_teams.size>1%}s{% endif %}</div>
@@ -209,7 +215,7 @@ TODO:: if appear-label is off center... ==> try "justify-content-end" on the *ro
 							{% assign count = count | plus: 1 %}
 							<div id="header-item" class="col-2 mt-1 mb-1">
 					        	<div class="hover-item squ-block">
-		        		            <a href="#{{ site.all_sections[4] | replace: " ","-" }}">
+		        		            <a href="#{{ site.all_sections[5] | replace: " ","-" }}">
 			                			<i class="icon-block fas fa-user-alt fa-2x"></i>
 			            			</a>
 		            				<div class="s-text">{{include.members.size}} {{ts}}{%if include.members.size>1%}s{% endif %}</div>
@@ -231,7 +237,7 @@ TODO:: if appear-label is off center... ==> try "justify-content-end" on the *ro
 							{% assign count = count | plus: 1 %}
 							<div id="header-item" class="col-2 mt-1 mb-1">
 					        	<div class="hover-item squ-block">
-		        		            <a href="#{{ site.all_sections[0] | replace: " ","-" }}">
+		        		            <a href="#{{ site.all_sections[1] | replace: " ","-" }}">
 			                			<i class="icon-block fa fa-user-friends fa-2x"></i>
 			            			</a>
 			            		<div class="s-text">{{include.projects.size}} {{ts}}{%if include.projects.size>1%}s{% endif %}</div>
@@ -253,7 +259,7 @@ TODO:: if appear-label is off center... ==> try "justify-content-end" on the *ro
 							{% assign count = count | plus: 1 %}
 							<div id="header-item" class="col-2 mt-1 mb-1">
 					        	<div class="hover-item squ-block">
-		        		            <a href="#{{ site.all_sections[2] | replace: " ","-" }}">
+		        		            <a href="#{{ site.all_sections[3] | replace: " ","-" }}">
 			                			<i class="icon-block fas fa-desktop fa-2x"></i>
 			            			</a>
 		            			<div class="s-text">{{softs.size}} {{ts}}{%if softs.size>1%}s{% endif %}</div>
@@ -275,7 +281,7 @@ TODO:: if appear-label is off center... ==> try "justify-content-end" on the *ro
 							{% assign count = count | plus: 1 %}
 							<div id="header-item" class="col-2 mt-1 mb-1">
 					        	<div class="hover-item squ-block">
-		        		            <a href="#{{ site.all_sections[1] | replace: " ","-" }}"> 
+		        		            <a href="#{{ site.all_sections[2] | replace: " ","-" }}"> 
 			                			<i class="icon-block fas fa-book fa-2x"></i>
 			            			</a>
 			   		            <div class="s-text">{{pubs.size}} {{ts}}{%if pubs.size>1%}s{% endif %}</div>
