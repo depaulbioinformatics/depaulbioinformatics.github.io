@@ -1,8 +1,10 @@
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!-- NOTE:: DEPENDS ON ORDERING OF site.all_sections-->
 
-<div class = "opportunities">
-<div class = "opportunity-opetion" {{post.opportunities}}>
-    <i class="fas fa-info-circle"></i>
-    <a href = "opportunities"> Opportunities Available </a>
-</div>
+{% capture link %}{{post.url}}#{{site.all_sections[6]}}{% endcapture %}
+
+<div>
+	<a href="{{link}}">
+	    <i class="fas fa-info-circle"></i>
+	    <span id="opportunities-text">Opportunities Available</span> 
+ 	</a>
 </div>
