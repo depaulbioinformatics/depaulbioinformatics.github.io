@@ -1,0 +1,33 @@
+
+{% if include.collection and include.postbox %}
+
+<!-- Posts Index
+================================================== -->
+<section class="recent-posts">
+
+{% if include.title %}
+
+    <div class="section-title">
+        <h2 id="{{ include.title | replace: " ","-" }}"><span class="text-capitalize">{{include.title}}</span></h2>
+    </div>
+    
+{% endif %}
+
+
+    <div class="row listrecent">
+
+        {% for post in include.collection %}
+
+        	   {% include {{include.postbox}} type=include.type %}
+               
+        {% endfor %}
+
+		<div class="section-return col-md-12 mt-4">
+			<h6><a href="#top"><span class="text-capitalize">back to top</span></a></h6>
+		</div>
+    
+    </div>
+
+</section>
+
+{% endif %}

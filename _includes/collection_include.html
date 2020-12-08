@@ -5,24 +5,11 @@
 ================================================== -->
 <section class="recent-posts">
 
-{% if include.title %}
-
-    <div class="section-title">
-
-    	<!-- Used for 'page' Table of contents if page.toc enabled -->
-    	{% if page.toc==true %}
-        	<h2 id="{{ include.title | replace: " ","-" }}"><span class="text-capitalize">{{include.title}}</span></h2>
-	    {% endif %}
-    </div>
-    
-{% endif %}
-
-
     <div class="row listrecent">
 
         {% for post in include.collection %}
 
-        	   {% include postbox.html %}
+        	   {% include postbox.html type=include.type %}
                
         {% endfor %}
 

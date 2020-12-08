@@ -74,10 +74,11 @@
 					{% endif %}
 
 				{% when site.all_sections[8] %}
-					{% if include.media_include %}
-						<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
+					{% if include.media_array %}
+						{% if include.media_array.size>0 %}
+							<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
+						{% endif %}
 					{% endif %}
-
 			{% endcase %}
 
 

@@ -22,7 +22,7 @@ Creates the 'pubs' and 'softs' array (if any publications/softwares)
 
 
 <!-- Create Table of Contents (toc) -->
-{% include post_toc.html members=page.people media_include=false %}
+{% include post_toc.html members=page.people media_array=media_array %}
 <div id="{{layout.sections[0] | replace: " ","-"}}" class="section-title col-md-12 mt-4">
 <h2>{{layout.sections[0]}}</h2>
 </div>
@@ -49,4 +49,4 @@ Sections -- extra (funding + status) + collection includes
 {% include SectionIncludes/jobs_include.html section=s type=layout.group %}
 
 {% assign s=layout.sections[6] %}
-{% include SectionIncludes/media_include.html section=s media_group=media_array %}
+{% include SectionIncludes/media_include.html section=s group_media=media_array %}

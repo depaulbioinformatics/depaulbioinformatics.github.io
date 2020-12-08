@@ -2,8 +2,10 @@
 title: Publications
 layout: page
 permalink: /publications/
-toc: true
 ---
+
+{% include page_toc.html sections=site.publication_types class="section-label" %}
+
 
 {% assign pubs= "" | split: "" %}
 {% assign other_pubs= "" | split: "" %}
@@ -22,10 +24,14 @@ toc: true
 
 {% endfor %}
 
+
+
 {% if pubs.size > 0 %}
-	{% include collection_include.html collection=pubs title=page.title %}
+	{% assign t=site.publication_types[0] %}
+	{% include titled_collection_include.html collection=pubs postbox="postbox.html" title=t %}
 {% endif %}
 
 {% if other_pubs.size > 0 %}
-	{% include collection_include.html collection=other_pubs title="Past Publications" %}
+	{% assign t=site.publication_types[1] %}
+	{% include titled_collection_include.html collection=other_pubs postbox="other_publicationsbox.html" title=t %}
 {% endif %}
