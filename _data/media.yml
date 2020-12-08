@@ -4,9 +4,13 @@ main:
     image: assets/images/5.jpg
     description: "A lab outing from DePaul's CoBaAB team."
     date: "2020-01-01"
+    team: "CoBaAB"
+    project: "SARS-project"
 
   - title: "Colloqium presentation 2021"
     image: assets/images/12.jpg
     description: "A bioinformatics presentation at DePaul's spring colloqium."
+    team: "CoBaAB"
+    project: "Collaborative Research: ABI Innovation: Biofilm Resource and Information Database (BRaID): A Tool to Fuse Diverse Biofilm Data Types."
 
 

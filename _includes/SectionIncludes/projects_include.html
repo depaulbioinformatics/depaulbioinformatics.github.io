@@ -16,7 +16,7 @@ required input:
 
 		{% for post in include.projects_array %}
 
-			{% include sub-postbox.html author_note="PI" %}
+			{% include sub-postbox.html author_note="PI" type="project" member_count=post.people.size %}
 
 		{% endfor %}
 	</div>

@@ -1,0 +1,41 @@
+
+{% if include.explore_keywords and include.limit %}
+
+    {% for category in include.explore_keywords limit:include.limit %}
+        {% assign count = 0 %}
+        <!-- Count number of posts in each category for each collection type -->
+        {% for post in site.projects %}
+            {% if post.keywords contains category %}
+                {% assign count = count | plus: 1 %}
+            {% endif %}
+        {% endfor %}
+
+        {% for post in site.teams %}
+            {% if post.keywords contains category %}
+                {% assign count = count | plus: 1 %}
+            {% endif %}
+        {% endfor %}
+
+        {% for post in site.members %}
+            {% if post.keywords contains category %}
+                {% assign count = count | plus: 1 %}
+            {% endif %}
+        {% endfor %}
+
+        {% for post in site.publications %}
+            {% if post.keywords contains category %}
+                {% assign count = count | plus: 1 %}
+            {% endif %}
+        {% endfor %}
+
+        {% for post in site.software %}
+            {% if post.keywords contains category %}
+                {% assign count = count | plus: 1 %}
+            {% endif %}
+        {% endfor %}
+
+        <a class="mt-1 mb-1" href="{{site.baseurl}}/categories#{{ category | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }} ({{ count }})</a>
+        
+    {% endfor %}
+
+{% endif %}

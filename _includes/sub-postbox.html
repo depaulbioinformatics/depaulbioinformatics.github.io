@@ -7,34 +7,47 @@
                 {% if post.image %}
 
                     <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
-                        
-                        {% if site.lazyimages == "enabled" %}
-                            <img class="sub-post-thumb img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
-                        {% else %}
-                            <img class="sub-post-thumb img-fluid" src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}"> 
-                        {% endif %}
-
+                        <a href="{{ site.baseurl }}{{ post.url }}">
+                            {% if site.lazyimages == "enabled" %}
+                                <img class="sub-post-thumb img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
+                            {% else %}
+                                <img class="sub-post-thumb img-fluid" src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}"> 
+                            {% endif %}
+                        </a>
                     </div>
 
                 {% else %}
 
-                    <div class="col-md-2 col-lg-1 d-none d-md-block text-center text-md-left mb-4 mb-md-0">
-                        
-                    </div>
+                    <!-- DISPLAY some white space if no image included for post -->
+                    <div class="col-md-2 col-lg-1 d-none d-md-block text-center text-md-left mb-4 mb-md-0"></div>
+
                 {% endif %}
+
+                <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+
+                    <!-- card tags (group, status, member count) -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                            {% if include.type %}<div class="tag-label">{{ include.type }}</div>{% endif %}
+                            {% if post.status %}<div class="tag-label">{{ post.status }}</div>{% endif %}
+                            {% if include.member_count %}<div class="tag-label">{{ include.member_count }} members</div>{% endif %}
+                        </div>
 
                         <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
                             <h4 class="sub-card-title"><a class="link-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
-                            <!--<a target="_blank" href="{{ author_post.twitter }}" class="btn follow">Follow</a>-->
-                            {% if include.description %}
-                                <span class="author-description">{{ include.description }}</span>
-                            {% endif %}
                         </div>
+                    </div>
+
+                </div>
 
             </div>
 
         <div class="card-body">
             <!-- Change from: /h2 => /h4, enables table of contents to work properly... -->
+            {% if include.description %}
+                <span class="author-description">{{ include.description }}</span>
+            {% endif %}
+            <!--<h4 class="sub-card-title"><a class="link-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>-->
             <h4 class="card-text">{{ post.excerpt | strip_html | truncatewords:30 }}</h4>
         </div>
         <div class="card-footer bg-white">

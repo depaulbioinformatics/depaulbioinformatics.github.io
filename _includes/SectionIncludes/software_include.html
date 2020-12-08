@@ -25,7 +25,7 @@ INCLUDE PARAMETERS::
 
 					<!--Formatting-->
 					{% assign d=post.people | join: ", " %}
-					{% include sub-postbox.html description=d author_note="Head" %}
+					{% include sub-postbox.html description=d author_note="Head" type="software" member_count=post.people.size %}
 					
 
 				{% endfor %}
