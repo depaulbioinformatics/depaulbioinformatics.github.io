@@ -2,8 +2,12 @@
 title: Members
 layout: page
 permalink: /members/
-toc: true
 ---
+
+
+{% include page_toc.html sections=site.member_types class="section-label" %}
+
+
 
 <!--horrible design... hardcoding in different member types -->
 {% assign faculty= "" | split: "" %}
@@ -47,36 +51,36 @@ toc: true
 -->
 {% if faculty.size > 0 %}
 	{% assign t=site.member_types[0] %}
-	{% include collection_include.html collection=faculty title=t %}
+	{% include titled_collection_include.html collection=faculty postbox="postbox.html" title=t type="member" %}
 {% endif %}
 
 {% if postdocs.size > 0 %}
 	{% capture t %}{{site.member_types[1]}}s{% endcapture %}
-	{% include collection_include.html collection=postdocs title=t %}
+	{% include titled_collection_include.html collection=postdocs postbox="postbox.html" title=t type="member" %}
 {% endif %}
 
 {% if phds.size > 0 %}
 	{% capture t %}{{site.member_types[2]}}s{% endcapture %}
-	{% include collection_include.html collection=phds title=t %}
+	{% include titled_collection_include.html collection=phds postbox="postbox.html" title=t type="member" %}
 {% endif %}
 
 {% if masters.size > 0 %}
 	{% capture t %}{{site.member_types[3]}}s{% endcapture %}
-	{% include collection_include.html collection=masters title=t %}
+	{% include titled_collection_include.html collection=masters postbox="postbox.html" title=t type="member" %}
 {% endif %}
 
 {% if students.size > 0 %}
 	{% capture t %}{{site.member_types[4]}}s{% endcapture %}
-	{% include collection_include.html collection=students title=t %}
+	{% include titled_collection_include.html collection=students postbox="postbox.html" title=t type="member" %}
 {% endif %}
 
 {% if collabs.size > 0 %}
 	{% assign t=site.member_types[5] %}
-	{% include collection_include.html collection=collabs title=t %}
+	{% include titled_collection_include.html collection=collabs postbox="postbox.html" title=t type="member" %}
 {% endif %}
 
 {% if alumni.size > 0 %}
 	{% capture t %}Alumni{% endcapture %}
-	{% include collection_include.html collection=alumni title=t %}
+	{% include titled_collection_include.html collection=alumni postbox="postbox.html" title=t type="member" %}
 {% endif %}
 

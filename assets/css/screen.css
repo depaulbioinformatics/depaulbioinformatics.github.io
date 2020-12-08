@@ -129,6 +129,11 @@ section.recent-posts {
     overflow: hidden;
 }
 
+.halfmaxthumb{
+    max-height: 150px;
+    overflow: hidden; 
+}
+
 .listfeaturedtag .card,
 .card-footer {
     border: 0;

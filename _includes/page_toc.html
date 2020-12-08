@@ -1,0 +1,12 @@
+
+{% if include.sections and include.class %}
+	<!-- Create Table of Contents (toc) -->
+	<div class="row text-center justify-content-center toc-background">
+
+			{% for section in include.sections %}
+				<div class="col mt-2 mb-2"><a href="#{{ section | replace: " ","-" }}"><span class="{{include.class}} text-capitalize">{{ section }}</span></a></div>
+			{% endfor %}
+
+	</div>
+	<br>
+{% endif %}

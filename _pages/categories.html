@@ -11,12 +11,5 @@ permalink: /categories
 
 
 <h3 class="font-weight-bold">Categories</h3>
-<!-- Create Table of Contents (toc) -->
-<div class="row text-center justify-content-center toc-background">
 
-		{% for category in all_keywords %}
-			<div class="col mt-2 mb-2"><a href="#{{ category | replace: " ","-" }}"><span class="category-label text-capitalize">{{ category }}</span></a></div>
-		{% endfor %}
-
-</div>
-
+{% include page_toc.html sections=all_keywords class="category-label" %}

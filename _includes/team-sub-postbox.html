@@ -1,0 +1,51 @@
+<!-- begin post -->
+{% assign author = site.members | where: "author", post.author | first %}
+
+<div class="col-lg-4 col-md-5-offset-1 mb-30px card-group">
+
+    <div class="card h-100">
+        <div class="halfmaxthumb">
+
+                {% if post.image %}
+
+                    {% assign image=post.image %}
+                    <!-- determine which pic to use as post picture-->
+                    {% if post.icon_image %}{% assign image=post.icon_image %}{% endif %}
+                    
+                    {% if site.lazyimages == "enabled" %}
+                        <img class="image-with-text img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ post.title }}">
+                    
+                    {% else %}
+                        <img class="featured-image img-fluid" src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ post.title }}">
+                    {% endif %}
+
+                {% endif %}
+                {% comment %}<!--{% if include.type %}<div class="image-text tag-label">{{ include.type }}</div>{% endif %}-->{% endcomment %}
+        </div>
+        <div class="card-body">
+            <!-- Change from: /h2 => /h4, enables table of contents to work properly... -->
+            <h4 class="sub-card-title">
+                <span class="text-dark">{{ post.title }}</span>
+            </h4>
+        </div>
+        {% if post.author %}
+            <div class="card-footer bg-white">
+                <div class="wrapfooter">
+                    <span class="meta-footer-thumb">
+                    {% if author.avatar %}
+                    <img class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.name }}">
+                    {% else %}
+                    <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.name }}">
+                    {% endif %}
+                    </span>
+                    <span class="author-meta">
+                    <span class="post-name"><a href="{{site.baseurl}}}{{ author.url }}">{% if include.author_note %}{{include.author_note}}: {% endif %}{{ author.title }}</a></span><br/>
+                    </span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+<!-- end post -->

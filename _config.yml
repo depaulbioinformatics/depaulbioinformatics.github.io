@@ -37,6 +37,7 @@ all_sections: ["About", "Projects", "Publications", "Software", "Teams", "Member
 all_headers: ["Starting Date", "Ending Date", "Status", "Keyword", "Team", "Member", "Project", "Software", "Publication"]
 
 member_types: ["Faculty", "Postdoctoral Researcher", "PhD Researcher", "Master's Student", "Undergraduate Student", "External Collaborator", "Alumnus"]
+publication_types: ["Publications", "Past Publications"]
 
 # Defaults
 defaults:
