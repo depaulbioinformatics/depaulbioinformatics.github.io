@@ -1,0 +1,19 @@
+
+
+{% assign group_media="" | split: "" %}
+
+{% for media in site.data.media["main"] %}
+	
+	{% if include.type=="team" %}
+		{% if media.team==page.title %}
+			{% assign group_media=group_media | push: media %}
+		{% endif %}
+	{% endif %}
+
+	{% if include.type=="project" %}
+		{% if media.project==page.title %}
+			{% assign group_media=group_media | push: media %}
+		{% endif %}
+	{% endif %}
+
+{% endfor%}

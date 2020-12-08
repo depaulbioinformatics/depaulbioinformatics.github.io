@@ -116,47 +116,24 @@ does not show on pages... ==> Line 819 of css
 		</div>
 		<div class="col-md-8 p-5 align-self-center text-center">
 
-{% include allkeywords.html %} <!-- defines 'all_keywords' var -->
+            {% if page.keywords %}
+        
+                {% assign explore_keywords=page.keywords %}
 
-<!-- NOTE:: SHOULD MOVE THIS TO AN INCLUDE file... -->
-            {% for category in all_keywords limit:18 %}
-                {% assign count = 0 %}
-                <!-- Count number of posts in each category for each collection type -->
-                {% for post in site.projects %}
-                    {% if post.keywords contains category %}
-                        {% assign count = count | plus: 1 %}
-                    {% endif %}
-                {% endfor %}
+            {% else %}
 
-                {% for post in site.teams %}
-                    {% if post.keywords contains category %}
-                        {% assign count = count | plus: 1 %}
-                    {% endif %}
-                {% endfor %}
+                {% include allkeywords.html %} <!-- defines 'all_keywords' var -->
 
-                {% for post in site.members %}
-                    {% if post.keywords contains category %}
-                        {% assign count = count | plus: 1 %}
-                    {% endif %}
-                {% endfor %}
+                {% assign explore_keywords=all_keywords %}
 
-                {% for post in site.publications %}
-                    {% if post.keywords contains category %}
-                        {% assign count = count | plus: 1 %}
-                    {% endif %}
-                {% endfor %}
+                {% assign all_keywords = nil %}
 
-                {% for post in site.software %}
-                    {% if post.keywords contains category %}
-                        {% assign count = count | plus: 1 %}
-                    {% endif %}
-                {% endfor %}
+            {% endif %}
 
-                <a class="mt-1 mb-1" href="{{site.baseurl}}/categories#{{ category | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }} ({{ count }})</a>
-                
-            {% endfor %}
-            {% assign all_keywords = nil %}
-		</div>
+            <!-- Displays tag-links to each keyword on page or in site-->
+            {% include explore_keywords.html explore_keywords=explore_keywords limit=18 %}
+
+        </div>
 	</div>
 </div>
 

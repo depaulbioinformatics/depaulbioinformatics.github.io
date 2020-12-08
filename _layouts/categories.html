@@ -14,78 +14,78 @@ permalink: "/categories.html"
 
 
 <div class="row listrecent">
-{% for category in all_keywords %}
-<div class="section-title col-md-12 mt-4">
-<h2 id="{{ category | replace: " ","-" }}">Category <span class="text-capitalize">{{ category }}</span></h2>
-</div>
+	{% for category in all_keywords %}
+		<div class="section-title col-md-12 mt-4">
+			<h2 id="{{ category | replace: " ","-" }}">Category <span class="text-capitalize">{{ category }}</span></h2>
+		</div>
 
-<!-- NOTE:: SHOULD MOVE THIS TO AN INCLUDE file... -->
+		<!-- NOTE:: SHOULD MOVE THIS TO AN INCLUDE file... -->
 
-{% for post in site.projects %}
-    {% if post.keywords contains category %}
+		{% for post in site.projects %}
+		    {% if post.keywords contains category %}
 
-    	<!-- include postbox.html-->
-		{% if post.title != null %}
-		{% if group == null or group == post.group %}
-		{% include postbox.html %}
-		{% endif %}
-		{% endif %}
-    {% endif %}
-{% endfor %}
+		    	<!-- include postbox.html-->
+				{% if post.title != null %}
+				{% if group == null or group == post.group %}
+				{% include postbox.html %}
+				{% endif %}
+				{% endif %}
+		    {% endif %}
+		{% endfor %}
 
-{% for post in site.teams %}
-    {% if post.keywords contains category %}
+		{% for post in site.teams %}
+		    {% if post.keywords contains category %}
 
-    	<!-- include postbox.html-->
-		{% if post.title != null %}
-		{% if group == null or group == post.group %}
-		{% include postbox.html %}
-		{% endif %}
-		{% endif %}
-    {% endif %}
-{% endfor %}
+		    	<!-- include postbox.html-->
+				{% if post.title != null %}
+				{% if group == null or group == post.group %}
+				{% include postbox.html %}
+				{% endif %}
+				{% endif %}
+		    {% endif %}
+		{% endfor %}
 
-{% for post in site.members %}
-    {% if post.keywords contains category %}
+		{% for post in site.members %}
+		    {% if post.keywords contains category %}
 
-    	<!-- include postbox.html-->
-		{% if post.title != null %}
-		{% if group == null or group == post.group %}
-		{% include postbox.html %}
-		{% endif %}
-		{% endif %}
-    {% endif %}
-{% endfor %}
+		    	<!-- include postbox.html-->
+				{% if post.title != null %}
+				{% if group == null or group == post.group %}
+				{% include postbox.html %}
+				{% endif %}
+				{% endif %}
+		    {% endif %}
+		{% endfor %}
 
-{% for post in site.publications %}
-    {% if post.keywords contains category %}
+		{% for post in site.publications %}
+		    {% if post.keywords contains category %}
 
-    	<!-- include postbox.html-->
-		{% if post.title != null %}
-		{% if group == null or group == post.group %}
-		{% include postbox.html %}
-		{% endif %}
-		{% endif %}
-    {% endif %}
-{% endfor %}
+		    	<!-- include postbox.html-->
+				{% if post.title != null %}
+				{% if group == null or group == post.group %}
+				{% include postbox.html %}
+				{% endif %}
+				{% endif %}
+		    {% endif %}
+		{% endfor %}
 
-{% for post in site.software %}
-    {% if post.keywords contains category %}
+		{% for post in site.software %}
+		    {% if post.keywords contains category %}
 
-    	<!-- include postbox.html-->
-		{% if post.title != null %}
-		{% if group == null or group == post.group %}
-		{% include postbox.html %}
-		{% endif %}
-		{% endif %}
-    {% endif %}
-{% endfor %}
+		    	<!-- include postbox.html-->
+				{% if post.title != null %}
+				{% if group == null or group == post.group %}
+				{% include postbox.html %}
+				{% endif %}
+				{% endif %}
+		    {% endif %}
+		{% endfor %}
 
-{% assign group = nil %}
+		{% assign group = nil %}
 
-<div class="section-return col-md-12 mt-4">
-	<h6><a href="#top"><span class="text-capitalize">back to top</span></a></h6>
-</div>
+		<div class="section-return col-md-12 mt-4">
+			<h6><a href="#top"><span class="text-capitalize">back to top</span></a></h6>
+		</div>
 
-{% endfor %}
+	{% endfor %}
 </div>

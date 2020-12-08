@@ -10,20 +10,13 @@ permalink: /categories
 {% include allkeywords.html %} <!-- defines 'all_keywords' var -->
 
 
-
+<h3 class="font-weight-bold">Categories</h3>
 <!-- Create Table of Contents (toc) -->
-<div class="toc mt-4 mb-4 lead">
+<div class="row text-center justify-content-center toc-background">
 
-    <h3 class="font-weight-bold">Categories</h3>
-
-<!--
-	- ul ==> NOT AN UNORDERED LIST... 
-	- When more categories, may need to change to real table - decrease height of toc...
--->
-	    <ul>
 		{% for category in all_keywords %}
-			<li><a href="#{{ category | replace: " ","-" }}"><span class="text-capitalize">{{ category }}</span></a></li>
+			<div class="col mt-2 mb-2"><a href="#{{ category | replace: " ","-" }}"><span class="category-label text-capitalize">{{ category }}</span></a></div>
 		{% endfor %}
-		</ul>
 
 </div>
+
