@@ -26,13 +26,13 @@ headers: ["Keyword", "Member", "Project"]
 
 <!-- Create Table of Contents (toc) -->
 {% include post_toc.html members=unique_members projects=projs %}
-<div id="{{layout.sections[0] | replace: " ","-"}}" class="section-title col-md-12 mt-4">
-<h2>{{layout.sections[0]}}</h2>
-</div>
-{{content}}
-
 
 <!--   TEAM PAGE Layout -- OUTPUT HERE     -->
+
+{% assign s=layout.sections[0] %}
+<!-- about section -->
+{% include SectionIncludes/about_include.html about=content section=s %}
+
 {% assign s=layout.sections[1] %}
 <!-- List members -->
 ​{% include SectionIncludes/members_include.html members_array=unique_members section=s %}

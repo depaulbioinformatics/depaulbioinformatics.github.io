@@ -12,12 +12,14 @@
                     <!-- determine which pic to use as post picture-->
                     {% if post.icon_image %}{% assign image=post.icon_image %}{% endif %}
                     
+                    <a href="{{ site.baseurl }}{{ post.url }}">
                     {% if site.lazyimages == "enabled" %}
                         <img class="image-with-text img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ post.title }}">
                     
                     {% else %}
                         <img class="featured-image img-fluid" src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ post.title }}">
                     {% endif %}
+                    </a>
 
                 {% endif %}
                 {% comment %}<!--{% if include.type %}<div class="image-text tag-label">{{ include.type }}</div>{% endif %}-->{% endcomment %}
@@ -25,7 +27,9 @@
         <div class="card-body">
             <!-- Change from: /h2 => /h4, enables table of contents to work properly... -->
             <h4 class="sub-card-title">
-                <span class="text-dark">{{ post.title }}</span>
+                <a href="{{ site.baseurl }}{{ post.url }}">
+                    <span class="text-dark">{{ post.title }}</span>
+                </a>
             </h4>
         </div>
         {% if post.author %}

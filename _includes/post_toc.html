@@ -20,9 +20,10 @@
 		{% for ts in layout.sections %}
 			{% case ts %}
 				{% when site.all_sections[0] %}
-					<!-- NOTE:: COMPLETELY hard-coded => #top == Site title id + ALL posts have about section -->
-					<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
-
+				 	{% assign content_size=content | size %}
+					{% if 0<content_size %}
+						<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
+					{% endif %}
 
 				{% when site.all_sections[1] %}
 					{% if include.projects %}

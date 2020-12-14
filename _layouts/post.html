@@ -33,11 +33,23 @@ NOTE:: Could add back to top button to all posts...
                         {% if author_post.avatar %}
                         <img class="author-thumb" src="{{site.baseurl}}/{{ author_post.avatar }}" alt="{{ author_post.name }}">
                         {% else %}
-                        <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author_post.gravatar }}?s=250&d=mm&r=x" alt="{{ author_post.name }}">
+                            <img class="author-thumb" src="{{site.baseurl}}/{{ site.default_author_avatar }}" alt="{{ author.name }}">
+                        <!-- Default person icon...
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author_post.gravatar }}?s=250&d=mm&r=x" alt="{{ author_post.name }}"> -->
                         {% endif %}
                     </div>
                     <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
-                        <a target="_blank" class="link-dark" href="{{ author_post.web }}">{% if layout.group != "member" %}PI: {% endif %}{{ author_post.name }}</a>
+                        <a target="_blank" class="link-dark" href="{{ author_post.external_link }}">
+                            <!-- yuck... strategy pattern should be used here -->
+                            {% if layout.group != "member" %}
+                            PI: 
+                            {% endif %}
+                            {% if author_post.name %}
+                                {{ author_post.name }}
+                            {% else %}
+                                {{ author_post.title }}
+                            {% endif %}
+                        </a>
                         <!--<a target="_blank" href="{{ author_post.twitter }}" class="btn follow">Follow</a>-->
                         <br>
                         <span class="author-description">{{ author_post.description }}</span>
@@ -57,20 +69,35 @@ NOTE:: Could add back to top button to all posts...
             {% endif %}
             <!-- End Adsense -->
 
+            <!-- Post Banner Image -->
+            {% if page.banner_image %}
+
+                {% assign image=page.banner_image %}
+                <div class="row justify-content-center">
+                    {% if site.lazyimages == "enabled" %}
+                        <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">
+                    
+                    {% else %}
+                        <img class="featured-image img-fluid" src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">
+                    {% endif %}
+                </div>
+            {% endif %}
+            <!-- End banner Image -->
+
             <!-- Post Featured Image -->
-            {% if page.image %}
+            {% if page.image or page.featured_image %}
 
                 {% assign image=page.image %}
                 <!-- determine which pic to use as post picture-->
                 {% if page.featured_image %}{% assign image=page.featured_image %}{% endif %}
-                
-                {% if site.lazyimages == "enabled" %}
-                    <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">
-                
-                {% else %}
-                    <img class="featured-image img-fluid" src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">
-                {% endif %}
-
+                <div class="row justify-content-center">
+                    {% if site.lazyimages == "enabled" %}
+                        <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">
+                    
+                    {% else %}
+                        <img class="featured-image img-fluid" src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">
+                    {% endif %}
+                </div>
             {% endif %}
             <!-- End Featured Image -->
 
@@ -165,28 +192,3 @@ End Comments
 ================================================== -->
 {% endcomment %}
 
-<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
-https://search.google.com/structured-data/testing-tool/u/0/
-================================================== -->
-{% if page.rating %}
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org/",
-  "@type": "Review",
-  "itemReviewed": {
-    "@type": "Thing",
-    "name": "{{ page.title }}"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "{{ author.display_name }}"
-  },
-  "datePublished": "{{ page.date | date:"%Y-%m-%d" }}",
-  "reviewRating": {
-    "@type": "Rating",
-    "ratingValue": "{{ page.rating }}",
-    "bestRating": "5"
-  }
-}
-</script>
-{% endif %}
