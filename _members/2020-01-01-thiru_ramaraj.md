@@ -5,9 +5,7 @@ author: "Thiru Ramaraj"
 
 type_group: "Faculty"
 
-name: Thiru
-display_name: Thiru
-gravatar: e56154546cf4be74e393c62d1ae9f9d4
+name: Thiru Ramaraj
 email: wowthemesnet@gmail.com
 web: https://www.wowthemes.net
 twitter: https://twitter.com/wowthemesnet

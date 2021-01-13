@@ -1,0 +1,19 @@
+<!--
+
+A include (page) for about section
+
+-->
+
+{% if include.about and include.section %}
+ 	{% assign content_size=include.about | size %}
+	{% if 1<content_size %}
+		<div class="section-title col-md-12 mt-4">
+		<h2 id="{{include.section | replace: " ","-"}}"><span class="text-capitalize">{{include.section}}</span></h2>
+		</div>
+
+		<!--Formatting-->
+		{{include.about}}
+
+	{% endif %}
+
+{% endif %}

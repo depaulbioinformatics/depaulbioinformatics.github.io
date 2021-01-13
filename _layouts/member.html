@@ -40,17 +40,15 @@ Creates the 'pubs' and 'softs' array (if any publications/softwares)
 
 <!-- Create Table of Contents (toc) -->
 {% include post_toc.html projects=projs %}
-<div id="{{layout.sections[0] | replace: " ","-"}}" class="section-title col-md-12 mt-4">
-<h2>{{layout.sections[0]}}</h2>
-</div>
 
-{{ content }}
 
 
 <!-- OUTPUT ALL includes for each section 
 NOTE:: very UGLY ==> could create dictionary of 'sections': 
 { key: section_name, value: include_script}
 -->
+{% assign s=layout.sections[0] %}
+{% include SectionIncludes/about_include.html about=content section=s %}
 
 ​<!-- List projects --- and description + linkage -->
 {% assign s=layout.sections[1] %}

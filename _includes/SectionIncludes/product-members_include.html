@@ -1,0 +1,14 @@
+
+
+<div class="text-center">
+	{% for member in page.people %}
+		{% assign post = site.members | where: "title", member | first %}
+
+		{% if forloop.last == false %}
+			<a href="{{site.baseurl}}{{post.url}}"><b>{{member}}, </b></a>
+		{% else %}
+			<a href="{{site.baseurl}}{{post.url}}"><b>{{member}}</b></a>
+		{% endif %}
+
+	{% endfor %}
+</div>

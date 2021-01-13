@@ -1,5 +1,5 @@
 
-{% if include.collection %}
+{% if include.collection and include.postbox %}
 
 <!-- Posts Index
 ================================================== -->
@@ -9,7 +9,7 @@
 
         {% for post in include.collection %}
 
-        	   {% include postbox.html type=include.type %}
+        	   {% include {{include.postbox}} type=include.type %}
                
         {% endfor %}
 

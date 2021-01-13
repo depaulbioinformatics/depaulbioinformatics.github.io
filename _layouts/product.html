@@ -1,18 +1,16 @@
 ---
 layout: post
+sections: ["About"]
 ---
-{% for member in page.people %}
-	{% assign post = site.members | where: "title", member | first %}
 
-	{% if forloop.last == false %}
-		<a href="{{site.baseurl}}{{post.url}}"><b>{{member}}, </b></a>
-	{% else %}
-		<a href="{{site.baseurl}}{{post.url}}"><b>{{member}}</b></a>
-	{% endif %}
+<!-- Header-less sections -->
+{% include SectionIncludes/product-description_include.html %}
 
-{% endfor %}
+{% include SectionIncludes/product-members_include.html %}
 
-<div class="section-title col-md-12 mt-4">
-<h2>About</h2>
-</div>
-{{content}}
+{% include SectionIncludes/product-link_include.html %}
+
+
+<!-- Section -->
+{% assign s=layout.sections[0] %}
+{% include SectionIncludes/about_include.html about=content section=s %}

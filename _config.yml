@@ -39,6 +39,8 @@ all_headers: ["Starting Date", "Ending Date", "Status", "Keyword", "Team", "Memb
 member_types: ["Faculty", "Postdoctoral Researcher", "PhD Researcher", "Master's Student", "Undergraduate Student", "External Collaborator", "Alumnus"]
 publication_types: ["Publications", "Past Publications"]
 
+default_author_avatar: "assets/images/blank-profile-picture-973460_640.png"
+
 # Defaults
 defaults:
   # _teams

@@ -1,39 +1,64 @@
 ---
-title: phylotools
+layout: product
 
+# *****************************************************************************************************************************************************
+# user defined... REQUIRED
+# *****************************************************************************************************************************************************
+
+title: Phylotools
+
+
+# ...............................
+# ----> product specific variables
+# ...............................
+
+# Team - must match team.title --> links product to team
 team: CoBaAB
+
+# Project - must match project.title --> links product to project
+# 	- If undefined, categorized as "Past Publication"
 project: forest-project
 
-# people for product must be supplied --> enables it to appear on corresponding persons member page
+# people for product MUST be supplied --> enables it to appear on corresponding persons member page
 people: 
 - "DeAngelo Wilson"
 - "John Rogers"
 
-layout: product
+
+# *****************************************************************************************************************************************************
+# user defined... OPTIONAL
+# *****************************************************************************************************************************************************
+
+# Card description priority: 
+#	(1) description variable
+#   (2) first 30 chars of "About" (body) section
+#   (3) nothing  
+description: "A software package designed to be swiss-army like tool for creating and analyzing phylogenetic trees computed from genomic data."
+
+# if true --> Appears on 'Home' page
+featured: true
+
+#NOTE:: images should have the aspect ratio ==> 3 : 2?
+# key words MUST all be lowercase (or allows duplicates)
+keywords: ["phylogeny", "computational phylogenetics", "software"]
+
+# Image on Card -- NOTE:: card images should have the aspect ratio ==> 3 : 2?
+# 	- Since no "featured_image" -> Image in post too
+#image: "assets/images/kebab-logo.png"
+
+# Image on post -- above About section -- (Must figure out best dimensions: )
+#post_image: "assets/images/BRaID-CoBaAB-IMG2.png"
+
+# Image in post -- above About section + featured image -- (Must figure out best dimensions: )
+#banner_image: "assets/images/computaional_bio_banner.jpg"
+
+
+# ...............................
+# ----> product specific variables
+# ...............................
+
+# External link to product 
+product_link: "https://github.com/itsdlow/PhyloTools"
+# Alternative text linking to product external link
+product_link_text: "Link to Github source"
 ---
-
-Proin massa augue, eleifend non ultricies eget, feugiat ut nisl. Fusce at
-aliquet justo, id elementum lacus. Praesent eleifend tempus molestie. Nunc
-vulputate sed tortor a ultrices. Nullam blandit hendrerit nisi, at suscipit
-augue ultricies quis. Nulla tincidunt rhoncus nisl sed consectetur. Phasellus
-dapibus, leo in varius tempus, nibh velit tincidunt lacus, ut porta eros ex et
-eros. Ut diam purus, sagittis vitae cursus eu, molestie eget turpis. Sed
-consectetur magna in posuere faucibus. Morbi nibh eros, blandit ut vehicula ac,
-pellentesque ut urna.
-
-Maecenas scelerisque ut enim non convallis. Mauris ut nisl vitae mi dictum
-mollis. Pellentesque iaculis lacinia nisl viverra laoreet. Integer ac lacus quis
-elit varius mollis et ultrices tortor. Aliquam id dolor cursus, sagittis arcu
-tincidunt, scelerisque nisi. Morbi scelerisque feugiat mi in faucibus. Maecenas
-suscipit aliquet est et efficitur. Nullam sed purus nec nulla placerat ultrices
-ac at ipsum. Mauris a imperdiet eros.
-
-Aenean malesuada tellus nulla, ut ultrices purus dictum et. Nunc non eleifend
-nulla, ut luctus nulla. Nulla et accumsan odio. Fusce libero nisl, rutrum ac
-risus sit amet, interdum feugiat eros. Morbi semper scelerisque magna vel
-malesuada. Curabitur in blandit orci. Cras eu tincidunt odio. Sed consectetur
-nunc purus, id pharetra felis fermentum vitae. Sed rhoncus lacus lacus. Aenean a
-ante et quam viverra pharetra interdum id ligula. Vestibulum lobortis ipsum ac
-risus sagittis, non dapibus metus finibus. Quisque efficitur felis sed felis
-luctus, non egestas ex dapibus. Sed pharetra gravida augue, id posuere nunc
-fringilla eget.

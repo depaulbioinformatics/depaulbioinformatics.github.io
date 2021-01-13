@@ -1,0 +1,23 @@
+{% if include.type %}
+	<!-- job can be associated with post 'group' (type) 'team' || 'project' -->
+
+
+	{% assign jobs_array="" | split: "" %}
+
+	{% for job in site.jobs %}
+		
+		{% if include.type=="team" %}
+			{% if job.team==page.title %}
+				{% assign jobs_array=jobs_array | push: job %}
+			{% endif %}
+		{% endif %}
+
+		{% if include.type=="project" %}
+			{% if job.project==page.title %}
+				{% assign jobs_array=jobs_array | push: job %}
+			{% endif %}
+		{% endif %}
+
+	{% endfor%}
+
+{% endif %}

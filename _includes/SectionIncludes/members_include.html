@@ -26,7 +26,7 @@ required input:
 	   		<!-- SLOW + UGLY -- Get-the-job-done way O(N * M) [N = total_member_posts, M = total_members_to_display -> sizeof(members_array)] 
 				- Gets the member post associated with the name 'member'
 	   		-->
-			{% assign member_post = site.members | where: "title", member | first %}
+			{% assign member_post = site.members | where: "author", member | first %}
 
 			<!--Formatting-->
 
