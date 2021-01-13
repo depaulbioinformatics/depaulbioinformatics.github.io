@@ -2,11 +2,15 @@
 layout: post
 sections: ["About"]
 ---
+
+<!-- Header-less sections -->
 {% include SectionIncludes/product-description_include.html %}
 
 {% include SectionIncludes/product-members_include.html %}
 
 {% include SectionIncludes/product-link_include.html %}
 
+
+<!-- Section -->
 {% assign s=layout.sections[0] %}
 {% include SectionIncludes/about_include.html about=content section=s %}

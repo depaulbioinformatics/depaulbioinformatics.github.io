@@ -1,8 +1,8 @@
 ---
 layout: post
 group: team
-sections: ["About", "Members", "Projects", "Opportunities", "Media"]
-headers: ["Keyword", "Member", "Project"]
+sections: ["About", "Fundings", "Members", "Projects", "Opportunities", "Media"]
+headers: ["Starting Date", "Ending Date", "Status","Keyword", "Member", "Project"]
 ---
 
 <!-- Get all projects for THIS team... -->
@@ -21,7 +21,11 @@ headers: ["Keyword", "Member", "Project"]
 <!-- create unique member list -->
 {% assign unique_members = members | uniq %}
 ​
-
+<!-- 
+Creates the 'jobs_array' (if any jobs associated with group)
+	NOTE:: depended on by post_toc.html 
+-->
+{% include jobs_array.html type=layout.group %}
 
 
 <!-- Create Table of Contents (toc) -->
@@ -34,12 +38,15 @@ headers: ["Keyword", "Member", "Project"]
 {% include SectionIncludes/about_include.html about=content section=s %}
 
 {% assign s=layout.sections[1] %}
+{% include SectionIncludes/funding_include.html section=s %}
+
+{% assign s=layout.sections[2] %}
 <!-- List members -->
 ​{% include SectionIncludes/members_include.html members_array=unique_members section=s %}
 
-​{% assign s=layout.sections[2] %}
+​{% assign s=layout.sections[3] %}
 <!-- List projects --- and description + linkage -->
 {% include SectionIncludes/projects_include.html projects_array=projs section=s %}
 
-{% assign s=layout.sections[3] %}
-{% include SectionIncludes/jobs_include.html section=s type=layout.group %}
+{% assign s=layout.sections[4] %}
+{% include SectionIncludes/jobs_include.html group_jobs=jobs_array section=s %}

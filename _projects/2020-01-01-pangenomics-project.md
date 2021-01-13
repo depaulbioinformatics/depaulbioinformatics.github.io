@@ -1,6 +1,6 @@
 ---
 title: "Collaborative Research: Innovation: Pioneering New Approaches to Explore Pangenomic Space at Scale."
-team: CoBaAB
+#team: Computational Biology and Applied Bioinformatics (CoBaAB) Laboratory
 people: 
 - "Thiru Ramaraj"
 keywords: ["Pangenomics"]

@@ -1,17 +1,78 @@
 ---
-title: forest-project
 layout: project
 
+# *****************************************************************************************************************************************************
+# user defined... REQUIRED
+# *****************************************************************************************************************************************************
+
+title: forest-project
+
+# Enables the "author box" --> used for PI of project
 author: "John Rogers"
-team: CoBaAB
+
+# ...............................
+# ----> project specific variables
+# ...............................
+
+# links project to corresponding team (must match 'team.title')
+team: Computational Biology and Applied Bioinformatics (CoBaAB) Laboratory
+
+# Used for the "next" and "prev" links at bottom of each post
+short_title: BRaID project
+
+# members of project -- Must match the 'author' of a corresponding member page...
 people: 
-- "DeAngelo Wilson"
 - "John Rogers"
+- "DeAngelo Wilson"
 
-featured: true
-hidden: true
 
+# *************************************************************************************************************************************************
+# user defined... OPTIONAL
+# *************************************************************************************************************************************************
+
+# Card description priority: 
+#	(1) description variable
+#   (2) first 30 chars of "About" (body) section
+#   (3) nothing  
 description: Hello this is the Forest Project!
+
+# if true --> Appears on 'Home' page
+featured: true
+
+# key words MUST all be lowercase (or allows duplicates)
+keywords: ["phylogentics"]
+
+# Image on Card -- NOTE:: card images should have the aspect ratio ==> 3 : 2?
+#image: "assets/images/BRaID-CoBaAB-IMG1.png"
+# Image on post -- above About section -- (Must figure out best dimensions: )
+#post_image: "assets/images/BRaID-CoBaAB-IMG2.png"
+# Image in post -- above About section + featured image -- (Must figure out best dimensions: )
+banner_image: "assets/images/computational_bio_banner.jpg"
+
+
+# ...............................
+# ----> project specific variables
+# ...............................
+
+# Signals team is looking for help in some aspect of research (reduces work for postbox include...)
+#	- Enables the "opportunities available" icon ON card 
+opportunities: true
+
+# define to display 'opportunities' section with Alternative text- used if no "Job" opportunity posts related to team
+# 	- Project and team define seperate "Call for action" texts, but a 'job' post can be linked to a project and team
+#call_for_action: "HELP WANTED"
+
+# If defined includes funding section -- displays String in section
+#	- could change to a list of agencies -- craete icon for recognized agencies?
+#funding: "National Science Foundation (NSF), DBI - ADVANCES IN BIOINFORMATICS"
+
+# the start/end date of a project
+# start_date: "May 1st 2020"
+end_date: "July 31st 2021"
+
+# Current status of project
+# Options: ["Completed", Ongoing", "Halted"]
+status: "Ongoing"
 ---
 
 Proin massa augue, eleifend non ultricies eget, feugiat ut nisl. Fusce at

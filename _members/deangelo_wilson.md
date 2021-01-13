@@ -13,22 +13,23 @@ author: "DeAngelo Wilson"
 
 
 # ...............................
-# ----> project specific variables
+# ----> member specific variables
 # ...............................
 
 # determines grouping on "Contributors" page
 # Options: ["Faculty", "Postdoctoral Researcher", "PhD Researcher", "Master's Student", "Undergraduate Student", "External Collaborator", "Alumnus"]
 type_group: "Master's Student"
 
-# Name on page (author box) | default: title
-# name: John Rogers
+# Name on page (author box) | default: title 
+# 	- (can be used to have distinct names appear on card vs. member page)
+# name: DeAngelo Wilson
 
 
 # *****************************************************************************************************************************************************
 # user defined... OPTIONAL
 # *****************************************************************************************************************************************************
 
-# key words MUST all be lowercase (or allows duplicates) -- change?
+# NOTE:: key words MUST all be lowercase (or allows duplicates)...
 keywords: ["computer science", "phylogenomics", "computational phylogenetics"]
 
 # Card description priority: 
@@ -42,9 +43,9 @@ featured: true
 
 # NOTE:: do we want these images centered
 # Image on post -- above About section -- (Must figure out best dimensions: )
-featured_image: "assets/images/dna_image.jpg"
+post_image: "assets/images/dna_image.jpg"
 # Image on post -- above About section + featured image -- (Must figure out best dimensions: )
-banner_image: "assets/images/computaional_bio_banner.jpg"
+banner_image: "assets/images/computational_bio_banner.jpg"
 
 # ...............................
 # ----> member specific variables
@@ -55,8 +56,8 @@ banner_image: "assets/images/computaional_bio_banner.jpg"
 external_link: "https://itsdlow.github.io/"
 twitter_link: "https://twitter.com/DePaulU"
 
-# Author image on page (author box) -- if left blank default image used
-# avatar: 'assets/images/avatar.png'
+# Author headshot image on page (author box) -- if left blank default image used
+avatar: 'assets/images/deangelo-headshot-1.jpg'
 
 
 # The body (below '---') MUST be left blank for -> - NO "About" section -

@@ -85,11 +85,11 @@ NOTE:: Could add back to top button to all posts...
             <!-- End banner Image -->
 
             <!-- Post Featured Image -->
-            {% if page.image or page.featured_image %}
+            {% if page.image or page.post_image %}
 
                 {% assign image=page.image %}
                 <!-- determine which pic to use as post picture-->
-                {% if page.featured_image %}{% assign image=page.featured_image %}{% endif %}
+                {% if page.post_image %}{% assign image=page.post_image %}{% endif %}
                 <div class="row justify-content-center">
                     {% if site.lazyimages == "enabled" %}
                         <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if image contains "://" %}{{ image }}{% else %}{{ site.baseurl }}/{{ image }}{% endif %}" alt="{{ page.title }}">

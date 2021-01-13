@@ -70,7 +70,7 @@
 					{% endif %}
 
 				{% when site.all_sections[7] %}
-					{% if page.opportunities %}
+					{% if jobs_array.size>0 or page.call_for_action %}	
 						<div class="col mt-1 mb-1"><a href="#{{ ts | replace: " ","-" }}"><span class="text-capitalize">{{ ts }}</span></a></div>
 					{% endif %}
 

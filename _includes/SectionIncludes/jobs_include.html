@@ -1,39 +1,19 @@
 
-{% if include.section and include.type %}
+{% if include.section and include.group_jobs %}
 <!-- If opportunties defined and true => check for jobs || display call_for_actiont text -->
-{% if page.opportunities==true %}
-
-	{% assign group_jobs="" | split: "" %}
-
-	{% for job in site.jobs %}
-		
-		{% if include.type=="team" %}
-			{% if job.team==page.title %}
-				{% assign group_jobs=group_jobs | push: job %}
-			{% endif %}
-		{% endif %}
-
-		{% if include.type=="project" %}
-			{% if job.project==page.title %}
-				{% assign group_jobs=group_jobs | push: job %}
-			{% endif %}
-		{% endif %}
-
-	{% endfor%}
-
 
 <!-- 'group_jobs' array created -- containing all job posts for the project/team -->	
 
-	{% if group_jobs.size>0 %}
+	{% if include.group_jobs.size>0 %}
 		<div class="section-title col-md-12 mt-4">
 			<h2 id="{{include.section | replace: " ","-"}}"><span class="text-capitalize">{{include.section}}</span></h2>
 		</div>
 
 		<div class="row listrecent">
-		   {% for post in group_jobs %}
+		   {% for post in include.group_jobs %}
 
 				<!--Formatting-->
-			{% include sub-postbox.html author_note="Contact:" %}
+			{% include sub-postbox.html author_note="Contact" %}
 		   
 		   {% endfor %}
 		</div>
@@ -50,5 +30,4 @@
  	{% endif %}
 
 
-{% endif %}
 {% endif %}

@@ -16,6 +16,12 @@ Creates the 'pubs' and 'softs' array (if any publications/softwares)
 -->
 {% include products_array.html tag=page.title type=layout.group %}
 
+<!-- 
+Creates the 'jobs_array' (if any jobs associated with group)
+	NOTE:: depended on by post_toc.html 
+-->
+{% include jobs_array.html type=layout.group %}
+
 <!-- Check if this project has any media to display -->
 {% include media_array.html type=layout.group %}
 
@@ -44,7 +50,7 @@ Sections -- extra (funding + status) + collection includes
 {% include SectionIncludes/software_include.html software=softs section=s %}
 
 {% assign s=layout.sections[5] %}
-{% include SectionIncludes/jobs_include.html section=s type=layout.group %}
+{% include SectionIncludes/jobs_include.html group_jobs=jobs_array section=s %}
 
 {% assign s=layout.sections[6] %}
 {% include SectionIncludes/media_include.html section=s group_media=media_array %}

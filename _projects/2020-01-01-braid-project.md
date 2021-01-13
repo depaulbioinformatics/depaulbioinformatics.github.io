@@ -15,7 +15,10 @@ author: "Thiru Ramaraj"
 # ...............................
 
 # links project to corresponding team (must match 'team.title')
-team: CoBaAB
+#team: Computational Biology and Applied Bioinformatics (CoBaAB) Laboratory
+
+# Used for the "next" and "prev" links at bottom of each post
+short_title: BRaID project
 
 # members of project -- Must match the 'author' of a corresponding member page...
 people: 
@@ -41,24 +44,25 @@ keywords: ["biofilms"]
 # Image on Card -- NOTE:: card images should have the aspect ratio ==> 3 : 2?
 image: "assets/images/BRaID-CoBaAB-IMG1.png"
 # Image on post -- above About section -- (Must figure out best dimensions: )
-featured_image: "assets/images/BRaID-CoBaAB-IMG2.png"
+post_image: "assets/images/BRaID-CoBaAB-IMG2.png"
 # Image in post -- above About section + featured image -- (Must figure out best dimensions: )
-banner_image: "assets/images/computaional_bio_banner.jpg"
+banner_image: "assets/images/computational_bio_banner.jpg"
 
 
 # ...............................
 # ----> project specific variables
 # ...............................
 
-# Signals team is looking for help in some aspect of research (reduces work for toc...)
-#	- Must be 'true' ti enable 'Opportunities' section (display jobs || call for action)
-opportunities: true
+# Signals team is looking for help in some aspect of research (reduces work for postbox include...)
+#	- Enables the "opportunities available" icon ON card 
+#opportunities: true
 
 # define to display 'opportunities' section with Alternative text- used if no "Job" opportunity posts related to team
-call_for_action: "HELP WANTED"
+# 	- Project and team define seperate "Call for action" texts, but a 'job' post can be linked to a project and team
+#call_for_action: "HELP WANTED"
 
 # If defined includes funding section -- displays String in section
-#	- could change to a list of agencies -- craete icon for recognized agencies?
+#	- could change to a list of agencies -- create icon for recognized agencies?
 funding: "National Science Foundation (NSF), DBI - ADVANCES IN BIOINFORMATICS"
 
 # the start/end date of a project

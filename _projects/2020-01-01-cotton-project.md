@@ -1,6 +1,6 @@
 ---
 title: "ABR-PG: Sequence Resources for Cotton, A Model System for Allopolyploid Crops."
-team: CoBaAB
+#team: Computational Biology and Applied Bioinformatics (CoBaAB) Laboratory
 people: 
 - "Thiru Ramaraj"
 

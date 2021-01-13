@@ -6,7 +6,7 @@
     <div class="card h-100">
         <div class="halfmaxthumb">
 
-                {% if post.image %}
+                {% if post.image or post.icon_image %}
 
                     {% assign image=post.image %}
                     <!-- determine which pic to use as post picture-->
