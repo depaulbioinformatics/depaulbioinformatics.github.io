@@ -17,8 +17,19 @@ headers: ["Keyword", "Team", "Project", "Software", "Publication"]
 {% endfor %}
 
 
-<!-- create empty array for all member's teams from set of projects... -->
+<!-- Create Teams array for member (includes projs teams + teams array) -->
 {% assign teams = '' | split: '' %}
+
+{% if page.teams %}
+
+	{% for team in page.teams %}
+		{% assign teams = teams | push: team %}
+	{% endfor %}
+
+{% endif %}
+
+<!-- create empty array for all member's teams from set of projects... -->
+
 {% for proj in projs %}
 ​
 	{% if proj.team %}
@@ -27,6 +38,7 @@ headers: ["Keyword", "Team", "Project", "Software", "Publication"]
 	​{% endif %}
 
 {% endfor %}
+
 <!-- create unique member list -->
 {% assign unique_teams = teams | uniq %}
 

@@ -7,8 +7,14 @@
         <div class="card-body">
             <!-- Change from: /h2 => /h4, enables table of contents to work properly... -->
             <h4 class="sub-card-title">
-                <span class="text-dark">{{ post.title }}</span>
+                {% if post.external_url %}
+                    <a class="text-dark" href="{{ post.external_url }}">{{ post.title }}</a>
+                {% else %}
+                    <a class="text-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                {% endif%}
             </h4>
+
+
              <h4 class="card-text">
                 {% if include.description %}
 

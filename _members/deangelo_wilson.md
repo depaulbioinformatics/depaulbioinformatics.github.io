@@ -17,8 +17,8 @@ author: "DeAngelo Wilson"
 # ...............................
 
 # determines grouping on "Contributors" page
-# Options: ["Faculty", "Postdoctoral Researcher", "PhD Researcher", "Master's Student", "Undergraduate Student", "External Collaborator", "Alumnus"]
-type_group: "Master's Student"
+# Options: ["Faculty", "Postdoctoral Researcher", "PhD Researcher", "Graduate Student", "Undergraduate Student", "External Collaborator", "Alumnus"]
+type_group: "Graduate Student"
 
 # Name on page (author box) | default: title 
 # 	- (can be used to have distinct names appear on card vs. member page)

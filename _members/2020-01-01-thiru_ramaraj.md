@@ -3,7 +3,9 @@ title: Thiru Ramaraj
 layout: member
 author: "Thiru Ramaraj"
 
-type_group: "Faculty"
+teams: ["Computational Biology and Applied Bioinformatics (CoBaAB) Laboratory"]
+
+type_group: "Principal Investigator"
 
 name: Thiru Ramaraj
 email: wowthemesnet@gmail.com

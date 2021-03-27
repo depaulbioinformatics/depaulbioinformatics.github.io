@@ -2,14 +2,16 @@
 title: Members
 layout: page
 permalink: /members/
+member_types_plural: ["Principal Investigators", "Faculty", "Postdoctoral Researchers", "PhD Researchers", "Graduate Students", "Undergraduate Students", "External Collaborators", "Alumni"]
 ---
 
 
-{% include page_toc.html sections=site.member_types class="section-label" %}
+{% include page_toc.html sections=page.member_types_plural class="section-label" %}
 
 
 
 <!--horrible design... hardcoding in different member types -->
+{% assign pis= "" | split: "" %}
 {% assign faculty= "" | split: "" %}
 {% assign postdocs= "" | split: "" %}
 {% assign phds= "" | split: "" %}
@@ -23,24 +25,27 @@ permalink: /members/
 
 	{% case post.type_group %}
 		{% when site.member_types[0] %}
-			{% assign faculty=faculty | push: post %}
+			{% assign pis=pis | push: post %}
 
 		{% when site.member_types[1] %}
-			{% assign postdocs=postdocs | push: post %}
+			{% assign faculty=faculty | push: post %}
 
 		{% when site.member_types[2] %}
+			{% assign postdocs=postdocs | push: post %}
+
+		{% when site.member_types[3] %}
 			{% assign phds=phds | push: post %}
 		
-		{% when site.member_types[3] %}
+		{% when site.member_types[4] %}
 			{% assign masters=masters | push: post %}
 			
-		{% when site.member_types[4] %}
+		{% when site.member_types[5] %}
 			{% assign students=students | push: post %}
 				
-		{% when site.member_types[5] %}
+		{% when site.member_types[6] %}
 			{% assign collabs=collabs | push: post %}
 			
-		{% when site.member_types[6] %}
+		{% when site.member_types[7] %}
 			{% assign alumni=alumni | push: post %}
 	{% endcase %}
 
@@ -49,38 +54,74 @@ permalink: /members/
 <!-- 
 	**ALL HARD CODED** -- changing 'member_types' changes collection output... 
 -->
+
+	{% assign t=page.member_types_plural[0] %}
+	{% include titled_collection_include.html collection=pis postbox="postbox.html" title=t type="member" %}
+
+	{% assign t=page.member_types_plural[1] %}
+	{% include titled_collection_include.html collection=faculty postbox="postbox.html" title=t type="member" %}
+
+	{% assign t=page.member_types_plural[2] %}
+	{% include titled_collection_include.html collection=postdocs postbox="postbox.html" title=t type="member" %}
+
+	{% assign t=page.member_types_plural[3] %}
+	{% include titled_collection_include.html collection=phds postbox="postbox.html" title=t type="member"  %}
+
+	{% assign t=page.member_types_plural[4] %}
+	{% include titled_collection_include.html collection=masters postbox="postbox.html" title=t type="member" %}
+
+	{% assign t=page.member_types_plural[5] %}
+	{% include titled_collection_include.html collection=students postbox="postbox.html" title=t type="member" %}
+
+	{% assign t=page.member_types_plural[6] %}
+	{% include titled_collection_include.html collection=collabs postbox="postbox.html" title=t type="member" %}
+
+	{% assign t=page.member_types_plural[7] %}
+	{% include titled_collection_include.html collection=alumni postbox="postbox.html" title=t type="member" %}
+
+
+
+{% comment %}
 {% if faculty.size > 0 %}
 	{% assign t=site.member_types[0] %}
-	{% include titled_collection_include.html collection=faculty postbox="postbox.html" title=t type="member" %}
+	{% assign id=site.member_types[0] %}
+	{% include titled_collection_include.html collection=faculty postbox="postbox.html" title=t type="member" id=id %}
 {% endif %}
 
 {% if postdocs.size > 0 %}
 	{% capture t %}{{site.member_types[1]}}s{% endcapture %}
-	{% include titled_collection_include.html collection=postdocs postbox="postbox.html" title=t type="member" %}
+	{% assign id=site.member_types[1] %}
+	{% include titled_collection_include.html collection=postdocs postbox="postbox.html" title=t type="member" id=id %}
 {% endif %}
 
 {% if phds.size > 0 %}
 	{% capture t %}{{site.member_types[2]}}s{% endcapture %}
-	{% include titled_collection_include.html collection=phds postbox="postbox.html" title=t type="member" %}
+	{% assign id=site.member_types[2] %}
+	{% include titled_collection_include.html collection=phds postbox="postbox.html" title=t type="member" id=id %}
 {% endif %}
 
 {% if masters.size > 0 %}
 	{% capture t %}{{site.member_types[3]}}s{% endcapture %}
-	{% include titled_collection_include.html collection=masters postbox="postbox.html" title=t type="member" %}
+	{% assign id=site.member_types[3] %}
+	{% include titled_collection_include.html collection=masters postbox="postbox.html" title=t type="member" id=id %}
 {% endif %}
 
 {% if students.size > 0 %}
 	{% capture t %}{{site.member_types[4]}}s{% endcapture %}
-	{% include titled_collection_include.html collection=students postbox="postbox.html" title=t type="member" %}
+	{% assign id=site.member_types[4] %}
+	{% include titled_collection_include.html collection=students postbox="postbox.html" title=t type="member" id=id %}
 {% endif %}
 
 {% if collabs.size > 0 %}
-	{% assign t=site.member_types[5] %}
-	{% include titled_collection_include.html collection=collabs postbox="postbox.html" title=t type="member" %}
+	{% capture t %}{{site.member_types[5]}}s{% endcapture %}
+	{% assign id=site.member_types[5] %}
+	{% include titled_collection_include.html collection=collabs postbox="postbox.html" title=t type="member" id=id %}
 {% endif %}
 
 {% if alumni.size > 0 %}
 	{% capture t %}Alumni{% endcapture %}
-	{% include titled_collection_include.html collection=alumni postbox="postbox.html" title=t type="member" %}
+	{% assign id=site.member_types[6] %}
+	{% include titled_collection_include.html collection=alumni postbox="postbox.html" title=t type="member" id=id %}
 {% endif %}
 
+{% endcomment %}
