@@ -7,7 +7,10 @@
 
     <div class="row listrecent">
 
-        {% for post in include.collection %}
+        <!-- SORT collection by date, DESC -->
+        {% assign collection = include.collection | sort: "date" | reverse %}
+
+        {% for post in collection %}
 
         	   {% include {{include.postbox}} type=include.type %}
                

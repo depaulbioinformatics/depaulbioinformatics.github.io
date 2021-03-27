@@ -6,7 +6,7 @@ headers: ["Starting Date", "Ending Date", "Status","Keyword", "Member", "Project
 ---
 
 <!-- Get all projects for THIS team... -->
-{% assign projs = site.projects | where:layout.group, page.title %}
+{% assign projs = site.projects | sort: "data" | reverse | where:layout.group, page.title %}
 ​
 <!-- Gather unique list of members from projects -->
 ​
@@ -18,9 +18,25 @@ headers: ["Starting Date", "Ending Date", "Status","Keyword", "Member", "Project
 	{% assign members = members | concat: p.people %}
 ​
 {% endfor %}
+
+
+{% for m in site.members %}
+​
+	<!-- if member.teams includes this.team-->
+	{% if m.teams contains page.title %}
+
+		{% assign members = members | push: m.author %} <!-- NOTE:: Author used to find member post-->
+	
+​	{% endif %}
+
+{% endfor %}
+
+
 <!-- create unique member list -->
 {% assign unique_members = members | uniq %}
 ​
+
+
 <!-- 
 Creates the 'jobs_array' (if any jobs associated with group)
 	NOTE:: depended on by post_toc.html 

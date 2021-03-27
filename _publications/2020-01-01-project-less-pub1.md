@@ -6,6 +6,9 @@ people:
 image: "assets/images/13.jpg"
 
 layout: product
+
+# if supplied:: clicking publication card title ---> takes to external link
+external_url: "https://www.google.com/"
 ---
 Proin massa augue, eleifend non ultricies eget, feugiat ut nisl. Fusce at
 aliquet justo, id elementum lacus. Praesent eleifend tempus molestie. Nunc

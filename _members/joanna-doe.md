@@ -2,7 +2,7 @@
 title: Joanna Doe
 layout: member
 
-type_group: "Postdoctoral Researcher"
+type_group: "PhD Researchers"
 
 author: "Joanna Doe"
 name: Joanna Doe
