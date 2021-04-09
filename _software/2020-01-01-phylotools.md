@@ -33,7 +33,7 @@ people:
 #	(1) description variable
 #   (2) first 30 chars of "About" (body) section
 #   (3) nothing  
-description: "A software package designed to be swiss-army like tool for creating and analyzing phylogenetic trees computed from genomic data."
+description: "A software package that is designed to be swiss-army like tool for creating and analyzing phylogenetic trees computed from genomic data."
 
 # if true --> Appears on 'Home' page
 featured: true
