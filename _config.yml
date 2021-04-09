@@ -2,8 +2,8 @@
 name: "DePaul Bioinformatics"
 title: "DePaul Bioinformatics"
 description: "An online portal for DePaul University Bioinformatics Research Contributions"
-logo: 'assets/images/DePaul-Logo-1.jpeg'
-favicon: 'assets/images/DePaul-Logo-1.jpeg'
+logo: 'assets/images/DePaul-Logo-2.jpeg'
+favicon: 'assets/images/DePaul-Logo-2.jpeg'
 baseurl: ''
 url: https://depaulbioinformatics.github.io
 google_analytics: 
