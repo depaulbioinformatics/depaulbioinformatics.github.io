@@ -5,6 +5,8 @@ permalink: /about/
 comments: true
 ---
 
+<p>Our mission is to address computational challenges associated with big biological data.</p>
+
 <!---
 
 <div class="row justify-content-between">
