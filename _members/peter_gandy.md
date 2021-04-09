@@ -4,7 +4,7 @@ title: Peter Gandy
 type_group: "PhD Researcher"
 
 layout: member
-description: Perpective PhD Student
+description: Perspective PhD Student
 
 post_toc: false
 
