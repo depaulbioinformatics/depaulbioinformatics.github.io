@@ -31,7 +31,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h2 class="card-title">
-                                <a class="text-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                                <a class="text-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title | truncatewords:2 }}</a>
                                 {% if post.opportunities %}
                                 <div class="mb-2 mt-2 font-weight-normal">
                                 {% include opportunities_include.html %}
@@ -42,9 +42,9 @@
                             <h4 class="card-text">
                                 
                                 {% if post.description %}
-                                    {{ post.description }}
+                                    {{ post.description | strip_html | truncatewords:10 }}
                                 {% else%}
-                                    {{ post.excerpt | strip_html | truncatewords:25 }}                            
+                                    {{ post.excerpt | strip_html | truncatewords:10 }}                            
                                 {% endif %}
 
                             </h4>
