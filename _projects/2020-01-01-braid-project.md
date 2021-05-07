@@ -5,7 +5,9 @@ layout: project
 # user defined... REQUIRED
 # *****************************************************************************************************************************************************
 
-title: "Collaborative Research: ABI Innovation: Biofilm Resource and Information Database (BRaID): A Tool to Fuse Diverse Biofilm Data Types."
+#title: "Collaborative Research: ABI Innovation: Biofilm Resource and Information Database (BRaID): A Tool to Fuse Diverse Biofilm Data Types."
+title: "(BRaID)"
+
 
 # Enables the "author box" --> used for PI of project
 author: "Thiru Ramaraj"
@@ -42,7 +44,10 @@ featured: true
 keywords: ["biofilms"]
 
 # Image on Card -- NOTE:: card images should have the aspect ratio ==> 3 : 2?
-image: "assets/images/BRaID-CoBaAB-IMG1.png"
+#image: "assets/images/BRaID-CoBaAB-IMG1.png"
+image: "assets/images/BRaID-CoBaAB-IMG1-small.png"
+
+
 # Image on post -- above About section -- (Must figure out best dimensions: )
 post_image: "assets/images/BRaID-CoBaAB-IMG2.png"
 # Image in post -- above About section + featured image -- (Must figure out best dimensions: )
