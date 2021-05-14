@@ -1,0 +1,54 @@
+<!-- begin post -->
+{% assign author = site.members | where: "author", post.author | first %}
+<div class="col-md-6 mb-30px">
+    <div class="listfeaturedtag h-100">
+        <div class="row h-100">
+
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="h-100 card-group">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <a class="text-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title | truncatewords:2 }}</a>
+                                {% if post.opportunities %}
+                                <div class="mb-2 mt-2 font-weight-normal">
+                                    {% include opportunities_include.html %}
+                                </div>
+                                {% endif %}
+                            </h2>
+
+                            <h4 class="card-text">
+                                
+                                {% if post.description %}
+                                    {{ post.description | strip_html | truncatewords:10 }}
+                                {% else%}
+                                    {{ post.excerpt | strip_html | truncatewords:10 }}                            
+                                {% endif %}
+
+                            </h4>
+                        </div>
+                        <div class="card-footer b-0 bg-white mt-auto">
+                            <div class="wrapfooter">
+                                {% if post.author %}
+                                <span class="meta-footer-thumb">
+                                {% if author.avatar %}
+                                <img class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.name }}">
+                                {% else %}
+                                <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.name }}">
+                                {% endif %}
+                                </span>
+                                <span class="author-meta">
+                                <span class="post-name"><a target="_blank" href="{{ author.web }}">{{ author.name }}</a></span><br/>
+                                {% endif %}
+                                <span class="post-date">{{ post.date | date_to_string }}</span>
+                                </span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
