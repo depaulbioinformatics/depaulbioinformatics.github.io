@@ -11,6 +11,25 @@ License: https://www.wowthemes.net/freebies-license/
     padding: 1rem 0rem;
 }
 
+.navbar-expand-lg .navbar-nav .nav-link {
+    color: rgba(210, 210, 210, .9);
+
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+    color: rgba(175, 175, 175, 1);
+
+}
+
+
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active {
+  color: rgba(255, 255, 255, 1);
+}
+
+
 a {
     color: #00ab6b;
     transition: all 0.2s;
@@ -38,10 +57,15 @@ pre {
     margin-bottom: -rem;
 }
 
+
 .mediumnavigation {
-    background: rgba(255, 255, 255, .97);
+    background: rgba(0, 0, 255, .97);
     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .15);
     transition: top 0.2s ease-in-out;
+}
+
+.blue-bg{
+    background:#0066AC !important;
 }
 
 .main-content {
