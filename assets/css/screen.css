@@ -31,12 +31,12 @@ License: https://www.wowthemes.net/freebies-license/
 
 
 a {
-    color: #00ab6b;
+    color: #0066AC;
     transition: all 0.2s;
 }
 
 a:hover {
-    color: #038252;
+    color: #E4002B;
     text-decoration: none;
 }
 
@@ -397,7 +397,7 @@ span.post-read-more a:hover {
 }
 
 blockquote {
-    border-left: 4px solid #00ab6b;
+    border-left: 4px solid #0066AC;
     padding: 0 20px;
     font-style: italic;
     color: rgba(0, 0, 0, .5);
